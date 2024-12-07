@@ -45,7 +45,7 @@
             padding: 4rem 2rem;
             text-align: center;
             color: #c9d1d9;
-            margin-bottom: 4rem; /* Added margin-bottom to create space between sections */
+            margin-bottom: 4rem;
         }
 
         .quote-section p {
@@ -61,43 +61,7 @@
             font-weight: bold;
         }
 
-        /* Services Section */
-        .services {
-            background-color: #222437;
-            padding: 4rem 2rem;
-            text-align: center;
-            color: #c9d1d9;
-            margin-top: 2rem; /* Added margin-top to push the section down */
-        }
-
-        .services h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
-
-        .services p {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .services .service-button {
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #c9d1d9;
-            background-color: #56b6c2;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            margin: 1rem;
-            display: inline-block;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .services .service-button:hover {
-            background-color: #379cb1;
-        }
-
-        /* Categories Section */
+        /* Categories Section (Above Services) */
         .categories {
             display: flex;
             justify-content: center;
@@ -119,6 +83,42 @@
         .categories a:hover {
             background-color: #56b6c2;
             color: #0d1117;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #222437;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #c9d1d9;
+            margin-top: 2rem;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .services p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services .service-button {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: white; /* Text color changed to white */
+            background-color: black; /* Background color changed to black */
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin: 1rem;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .services .service-button:hover {
+            background-color: #333333;
         }
 
         /* Portfolio Section */
@@ -265,6 +265,13 @@
         <span>- BlueNex Team</span>
     </div>
 
+    <!-- Categories Section (Moved Above Services) -->
+    <div class="categories">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
     <!-- Services Section -->
     <div class="services">
         <h2>Our Services</h2>
@@ -274,13 +281,6 @@
             <a href="#e-commerce" class="service-button">E-Commerce</a>
             <a href="#branding" class="service-button">Branding</a>
         </div>
-    </div>
-
-    <!-- Categories Section -->
-    <div class="categories">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
     </div>
 
     <!-- Portfolio Section -->
@@ -304,5 +304,12 @@
             <p>"Best website we've had so far!" - Client 3</p>
         </div>
     </div>
+
+    <!-- Background Streaks -->
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
 </body>
 </html>
