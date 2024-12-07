@@ -10,6 +10,7 @@
             font-family: 'Lato', sans-serif;
             background-color: #0d1117;
             color: #c9d1d9;
+            overflow-x: hidden;
         }
 
         h1, h2, p {
@@ -17,6 +18,7 @@
             padding: 0;
         }
 
+        /* Portfolio Section */
         .portfolio-item {
             position: relative;
             display: flex;
@@ -42,6 +44,7 @@
             right: 0;
         }
 
+        /* Text Styling */
         .portfolio-text {
             position: relative;
             z-index: 2;
@@ -49,7 +52,6 @@
             padding: 2rem;
         }
 
-        /* Speech Bubble Styling */
         .portfolio-text p {
             position: relative;
             z-index: 3;
@@ -62,6 +64,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* Thought Bubble Tail */
         .portfolio-item.left .portfolio-text p::after,
         .portfolio-item.right .portfolio-text p::after {
             content: '';
@@ -71,7 +74,6 @@
             border-style: solid;
         }
 
-        /* Left Thought Bubble Tail */
         .portfolio-item.left .portfolio-text p::after {
             top: 50%;
             left: -20px;
@@ -80,7 +82,6 @@
             transform: translateY(-50%);
         }
 
-        /* Right Thought Bubble Tail */
         .portfolio-item.right .portfolio-text p::after {
             top: 50%;
             right: -20px;
@@ -118,9 +119,58 @@
             left: 0;
             background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(13, 17, 23, 1) 100%);
         }
+
+        /* Background Streak Animation */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .streak {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, #2222FF, transparent);
+            opacity: 0.6;
+            animation: streak-animation 2s linear infinite;
+        }
+
+        @keyframes streak-animation {
+            0% {
+                transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
+            }
+        }
+
+        /* Generate Multiple Streaks */
+        .streak:nth-child(1) { --x-pos: 0.1; }
+        .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
+        .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
+        .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
+        .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
     </style>
 </head>
 <body>
+    <!-- Futuristic Streaks -->
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+
     <div class="portfolio-item left">
         <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+1" alt="Website 1">
         <div class="portfolio-text">
@@ -143,6 +193,7 @@
     </div>
 </body>
 </html>
+
 
 
 
