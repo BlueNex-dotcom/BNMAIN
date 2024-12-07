@@ -18,6 +18,51 @@
             padding: 0;
         }
 
+        /* Header Section */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #868e96;
+        }
+
+        /* Categories Section */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .categories a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #56b6c2;
+            padding: 0.5rem 1rem;
+            border: 2px solid #56b6c2;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .categories a:hover {
+            background-color: #56b6c2;
+            color: #0d1117;
+        }
+
         /* Portfolio Section */
         .portfolio-item {
             position: relative;
@@ -32,7 +77,7 @@
             position: absolute;
             top: 0;
             height: 100%;
-            width: 70%; /* Proportions maintained */
+            width: 70%;
             object-fit: cover;
         }
 
@@ -44,7 +89,6 @@
             right: 0;
         }
 
-        /* Text Styling */
         .portfolio-text {
             position: relative;
             z-index: 2;
@@ -100,7 +144,6 @@
             text-align: right;
         }
 
-        /* Fading Effect */
         .portfolio-item img::after {
             content: '';
             position: absolute;
@@ -121,17 +164,6 @@
         }
 
         /* Background Streak Animation */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
         .streak {
             position: absolute;
             width: 2px;
@@ -155,7 +187,6 @@
             }
         }
 
-        /* Generate Multiple Streaks */
         .streak:nth-child(1) { --x-pos: 0.1; }
         .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
         .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
@@ -164,14 +195,17 @@
     </style>
 </head>
 <body>
-    <!-- Futuristic Streaks -->
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
+    <header>
+        <h1>BlueNex</h1>
+        <p>Your Gateway to Stunning Web Design</p>
+    </header>
+    <div class="categories">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact Us</a>
+    </div>
 
-    <div class="portfolio-item left">
+    <div class="portfolio-item left" id="portfolio">
         <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+1" alt="Website 1">
         <div class="portfolio-text">
             <p>"Amazing design and user experience!" - Client 1</p>
@@ -193,6 +227,7 @@
     </div>
 </body>
 </html>
+
 
 
 
