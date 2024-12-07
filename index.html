@@ -3,175 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueNex - Professional Website Design</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+    <title>BlueNex Portfolio</title>
     <style>
         body {
+            margin: 0;
             font-family: 'Lato', sans-serif;
-            background-color: #111;
-            color: #fff;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        h1, h2, p {
             margin: 0;
             padding: 0;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 0;
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2em;
         }
 
         .portfolio-item {
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 60px 0;
-            transition: all 0.3s ease;
+            justify-content: flex-start;
+            height: 100vh;
             overflow: hidden;
-            margin-bottom: 80px; /* Vertical spacing between portfolio items */
-        }
-
-        .portfolio-item.left {
-            flex-direction: row-reverse;
-            position: relative;
-            width: 100vw; /* Full width */
-            left: 0; /* Ensure the image is at the left edge */
-        }
-
-        .portfolio-item.right {
-            flex-direction: row;
-            position: relative;
-            width: 100vw; /* Full width */
-            right: 0; /* Ensure the image is at the right edge */
         }
 
         .portfolio-item img {
-            width: 80vw; /* Image width adjusted */
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            position: relative;
-            z-index: 0;
-        }
-
-        .portfolio-text {
             position: absolute;
-            top: 20%;
-            left: 10%;
-            right: 10%;
-            color: #fff;
-            font-size: 1.5em;
-            line-height: 1.5;
-            max-width: 50%;
-            z-index: 1;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            top: 0;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeUp 1s forwards;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        /* Adjusted Fade Effect: Different fade on each side */
         .portfolio-item.left img {
-            background: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            animation: fadeInLeft 1s forwards;
+            left: 0;
         }
 
         .portfolio-item.right img {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            animation: fadeInRight 1s forwards;
+            right: 0;
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .portfolio-text {
+            position: relative;
+            z-index: 2;
+            max-width: 40%;
+            padding: 2rem;
+            color: #c9d1d9;
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .portfolio-item.left .portfolio-text {
+            margin-left: auto;
+            text-align: left;
         }
 
+        .portfolio-item.right .portfolio-text {
+            margin-right: auto;
+            text-align: right;
+        }
+
+        .fade-out {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 1) 100%);
+        }
+
+        .portfolio-item.right .fade-out {
+            background: linear-gradient(to right, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 1) 100%);
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Welcome to BlueNex</h1>
-        <p>Transforming Ideas into Stunning Websites</p>
-    </header>
-
-    <div class="container">
-        <!-- Portfolio Item 1 -->
-        <div class="portfolio-item left fade-up">
-            <img src="https://via.placeholder.com/1200x800/1111FF/FFFFFF?text=Website+1" alt="Website 1">
-            <div class="portfolio-text">
-                <p>“This is the best website design experience we've had. Our sales have increased significantly.” - Client Name</p>
-            </div>
-        </div>
-
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item right fade-up">
-            <div class="portfolio-text">
-                <p>“BlueNex helped us create a seamless online store. The experience was excellent!” - Client Name</p>
-            </div>
-            <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+2" alt="Website 2">
-        </div>
-
-        <!-- Portfolio Item 3 -->
-        <div class="portfolio-item left fade-up">
-            <img src="https://via.placeholder.com/1200x800/3333FF/FFFFFF?text=Website+3" alt="Website 3">
-            <div class="portfolio-text">
-                <p>“Our brand visibility has skyrocketed. Couldn't be happier with BlueNex!” - Client Name</p>
-            </div>
+    <div class="portfolio-item left">
+        <img src="https://via.placeholder.com/800x1200/2222FF/FFFFFF?text=Website+1" alt="Website 1">
+        <div class="fade-out"></div>
+        <div class="portfolio-text">
+            <p>"Amazing design and user experience!" - Client 1</p>
         </div>
     </div>
 
+    <div class="portfolio-item right">
+        <img src="https://via.placeholder.com/800x1200/2222FF/FFFFFF?text=Website+2" alt="Website 2">
+        <div class="fade-out"></div>
+        <div class="portfolio-text">
+            <p>"Highly professional and creative work!" - Client 2</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item left">
+        <img src="https://via.placeholder.com/800x1200/2222FF/FFFFFF?text=Website+3" alt="Website 3">
+        <div class="fade-out"></div>
+        <div class="portfolio-text">
+            <p>"Best website we've had so far!" - Client 3</p>
+        </div>
+    </div>
 </body>
 </html>
-
