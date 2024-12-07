@@ -4,20 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design - BlueNex</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #868e96;
+        }
+
+        /* Categories Section */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .categories a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #56b6c2;
+            padding: 0.5rem 1rem;
+            border: 2px solid #56b6c2;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .categories a:hover {
+            background-color: #56b6c2;
+            color: #0d1117;
+        }
+
+        /* Service Details Section */
+        .service-details {
+            background-color: #222437;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #c9d1d9;
+        }
+
+        .service-details h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .service-details p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .portfolio-item img {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 70%;
+            object-fit: cover;
+        }
+
+        .portfolio-item.left img {
+            left: 0;
+        }
+
+        .portfolio-item.right img {
+            right: 0;
+        }
+
+        .portfolio-text {
+            position: relative;
+            z-index: 2;
+            max-width: 40%;
+            padding: 2rem;
+        }
+
+        .portfolio-text p {
+            position: relative;
+            z-index: 3;
+            font-size: 1.6rem;
+            line-height: 1.4;
+            background: #222437;
+            color: #c9d1d9;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background Streak Animation */
+        .streak {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, #2222FF, transparent);
+            opacity: 0.6;
+            animation: streak-animation 2s linear infinite;
+        }
+
+        @keyframes streak-animation {
+            0% {
+                transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
+            }
+        }
+
+        .streak:nth-child(1) { --x-pos: 0.1; }
+        .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
+        .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
+        .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
+        .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
+    </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>Web Design</h1>
-        <p>Crafting visually stunning and user-friendly websites tailored to your needs.</p>
+        <h1>BlueNex - Web Design</h1>
+        <p>Creative Web Design Solutions for Your Business</p>
     </header>
 
-    <div class="services">
-        <h2>Our Web Design Services</h2>
-        <p>We offer a range of web design services to help elevate your online presence.</p>
+    <!-- Categories Section -->
+    <div class="categories">
+        <a href="index.html">Home</a>
+        <a href="web-design.html">Web Design</a>
+        <a href="e-commerce.html">E-Commerce</a>
+        <a href="branding.html">Branding</a>
     </div>
 
-    <footer>
-        <p>Contact us today to get started!</p>
-    </footer>
+    <!-- Service Details Section -->
+    <div class="service-details">
+        <h2>Our Web Design Service</h2>
+        <p>At BlueNex, we provide beautiful and functional websites tailored to your business needs. Whether you're a startup or an established brand, we create user-friendly designs that deliver results.</p>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div class="portfolio-item left">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
+        <div class="portfolio-text">
+            <p>"Amazing design and user experience!" - Client 1</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item right">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
+        <div class="portfolio-text">
+            <p>"Highly professional and creative work!" - Client 2</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item left">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
+        <div class="portfolio-text">
+            <p>"Best website we've had so far!" - Client 3</p>
+        </div>
+    </div>
+
+    <!-- Background Streaks -->
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
 </body>
 </html>
+
