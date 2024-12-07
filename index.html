@@ -47,9 +47,46 @@
             z-index: 2;
             max-width: 40%;
             padding: 2rem;
-            color: #c9d1d9;
-            font-size: 1.8rem; /* Increased text size */
+        }
+
+        /* Speech Bubble Styling */
+        .portfolio-text p {
+            position: relative;
+            z-index: 3;
+            font-size: 1.6rem;
             line-height: 1.4;
+            background: #222437;
+            color: #c9d1d9;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item.left .portfolio-text p::after,
+        .portfolio-item.right .portfolio-text p::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        /* Left Thought Bubble Tail */
+        .portfolio-item.left .portfolio-text p::after {
+            top: 50%;
+            left: -20px;
+            border-width: 10px 20px 10px 0;
+            border-color: transparent #222437 transparent transparent;
+            transform: translateY(-50%);
+        }
+
+        /* Right Thought Bubble Tail */
+        .portfolio-item.right .portfolio-text p::after {
+            top: 50%;
+            right: -20px;
+            border-width: 10px 0 10px 20px;
+            border-color: transparent transparent transparent #222437;
+            transform: translateY(-50%);
         }
 
         .portfolio-item.left .portfolio-text {
@@ -60,19 +97,6 @@
         .portfolio-item.right .portfolio-text {
             margin-right: auto;
             text-align: right;
-        }
-
-        .portfolio-text p {
-            position: relative;
-            z-index: 3;
-        }
-
-        .portfolio-item.left .portfolio-text p {
-            margin-left: -1.5rem; /* Slight overlap on the left */
-        }
-
-        .portfolio-item.right .portfolio-text p {
-            margin-right: -1.5rem; /* Slight overlap on the right */
         }
 
         /* Fading Effect */
@@ -119,6 +143,7 @@
     </div>
 </body>
 </html>
+
 
 
 
