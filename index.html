@@ -1,252 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BlueNex - AI-powered, custom-built websites for businesses.">
-    <meta name="keywords" content="BlueNex, website design, AI-powered websites, e-commerce solutions">
-    <meta name="author" content="BlueNex">
-    <title>BlueNex - AI-Powered Websites</title>
-
-    <!-- Google Fonts for Lato -->
+    <title>BlueNex - Professional Website Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
-
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Lato', sans-serif;
             background-color: #111;
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Lato', sans-serif;
-            font-weight: 400;
-            color: #00b0ff;
-        }
-
-        a {
-            color: #00b0ff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navbar */
-        nav {
-            background-color: #222;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            font-family: 'Lato', sans-serif;
-            font-size: 18px;
             color: #fff;
-            text-transform: uppercase;
-            font-weight: 400;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Portfolio Section */
-        .portfolio {
+        header {
+            text-align: center;
             padding: 60px 0;
-            background-color: #222;
-            animation: fadeIn 2s ease-in-out;
+            background-color: #1a1a1a;
+            color: #fff;
         }
 
-        .portfolio h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: #00b0ff;
-            font-weight: bold;
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
         }
 
-        /* Portfolio Item */
+        p {
+            font-size: 1.2em;
+        }
+
         .portfolio-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: relative;
-            width: 100%;
-            height: 500px; /* Increased height for taller images */
-            margin: 50px 0;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+            transition: all 0.3s ease;
         }
 
-        /* Left side images */
-        .portfolio-item.left img {
-            width: 120%; /* Slightly larger to make images stand out */
-            height: 100%;
-            object-fit: cover;
-            margin-left: -10%;
-            opacity: 0.9;
-            mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* Fades out to the right */
+        .portfolio-item.left {
+            flex-direction: row-reverse;
         }
 
-        /* Right side images */
-        .portfolio-item.right img {
-            width: 120%;
-            height: 100%;
-            object-fit: cover;
-            margin-right: -10%;
-            opacity: 0.9;
-            mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* Fades out to the left */
-        }
-
-        .portfolio-item .portfolio-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            line-height: 1.5;
-            text-align: center;
-            color: white;
-            max-width: 450px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
+        .portfolio-item img {
+            width: 80%;
+            height: auto;
             border-radius: 8px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            /* Add linear gradient to fade images towards the center */
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8));
+            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8));
+            mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8));
+        }
+
+        .portfolio-text {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            right: 10%;
+            color: #fff;
+            font-size: 1.5em;
+            line-height: 1.5;
+            max-width: 50%;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .fade-up {
             opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            z-index: 2; /* Ensures the text stays on top */
+            transform: translateY(50px);
+            animation: fadeUp 1s forwards;
         }
 
-        .portfolio-item.left .portfolio-text {
-            right: 10%; /* Text positioned on the right for left images */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .portfolio-item.right .portfolio-text {
-            left: 10%; /* Text positioned on the left for right images */
+        .container {
+            width: 80%;
+            margin: 0 auto;
         }
 
-        /* Animation for FadeIn */
-        @keyframes fadeIn {
+        .portfolio-item.left img {
+            animation: fadeInLeft 1s forwards;
+        }
+
+        .portfolio-item.right img {
+            animation: fadeInRight 1s forwards;
+        }
+
+        @keyframes fadeInLeft {
             from {
                 opacity: 0;
+                transform: translateX(-100px);
             }
             to {
                 opacity: 1;
+                transform: translateX(0);
             }
         }
 
-        /* Scroll Animation */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s, transform 1s;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .portfolio-item {
-                flex-direction: column;
-                align-items: center;
-                height: auto;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
             }
-
-            .portfolio-item .portfolio-text {
-                font-size: 1.2rem;
-            }
-
-            .portfolio-item img {
-                width: 100%;
-                height: 250px;
-                margin: 0;
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <section id="portfolio" class="portfolio">
-        <h2>Our Portfolio</h2>
+    <header>
+        <h1>Welcome to BlueNex</h1>
+        <p>Transforming Ideas into Stunning Websites</p>
+    </header>
 
-        <!-- Portfolio Item 1 (Image left, Text right) -->
+    <div class="container">
         <div class="portfolio-item left fade-up">
-            <img src="https://github.com/BlueNex-dotcom/BNMAIN/blob/main/tst-img-1.jpg?raw=true" alt="Website 1">
+            <img src="https://via.placeholder.com/1200x600/1111FF/FFFFFF?text=Website+1" alt="Website 1">
             <div class="portfolio-text">
                 <p>“This is the best website design experience we've had. Our sales have increased significantly.” - Client Name</p>
             </div>
         </div>
 
-        <!-- Portfolio Item 2 (Image right, Text left) -->
         <div class="portfolio-item right fade-up">
             <div class="portfolio-text">
                 <p>“BlueNex helped us create a seamless online store. The experience was excellent!” - Client Name</p>
             </div>
-            <img src="https://github.com/BlueNex-dotcom/BNMAIN/blob/main/tst-img-2.jpg?raw=true" alt="Website 2">
+            <img src="https://via.placeholder.com/1200x600/2222FF/FFFFFF?text=Website+2" alt="Website 2">
         </div>
 
-        <!-- Portfolio Item 3 (Image left, Text right) -->
         <div class="portfolio-item left fade-up">
-            <img src="https://github.com/BlueNex-dotcom/BNMAIN/blob/main/tst-img-3.jpg?raw=true" alt="Website 3">
+            <img src="https://via.placeholder.com/1200x600/3333FF/FFFFFF?text=Website+3" alt="Website 3">
             <div class="portfolio-text">
                 <p>“Our brand visibility has skyrocketed. Couldn't be happier with BlueNex!” - Client Name</p>
             </div>
         </div>
+    </div>
 
-    </section>
-
-    <footer>
-        <p>&copy; 2024 BlueNex. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Scroll animations
-        const fadeUpElements = document.querySelectorAll('.fade-up');
-        window.addEventListener('scroll', () => {
-            fadeUpElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                if (elementPosition < window.innerHeight - 50) {
-                    element.classList.add('visible');
-                }
-            });
-        });
-
-        // Initial scroll check to animate on load
-        window.dispatchEvent(new Event('scroll'));
-    </script>
 </body>
-
 </html>
-
-
