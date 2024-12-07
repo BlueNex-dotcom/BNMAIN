@@ -38,24 +38,23 @@
             padding: 60px 0;
             transition: all 0.3s ease;
             overflow: hidden;
+            margin-bottom: 80px; /* Vertical spacing between portfolio items */
         }
 
         .portfolio-item.left {
             flex-direction: row-reverse;
-            position: absolute;
-            left: 0; /* Move to left edge */
+            position: relative;
             width: 100vw; /* Full width */
         }
 
         .portfolio-item.right {
             flex-direction: row;
-            position: absolute;
-            right: 0; /* Move to right edge */
+            position: relative;
             width: 100vw; /* Full width */
         }
 
         .portfolio-item img {
-            width: 100%;
+            width: 80vw; /* Image width adjusted */
             height: auto;
             border-radius: 8px;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -99,16 +98,21 @@
             margin: 0 auto;
         }
 
-        /* Image fades from left and right edges */
+        /* Adjusted Fade Effect: Different fade on each side */
         .portfolio-item.left img {
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+            mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
             animation: fadeInLeft 1s forwards;
         }
 
         .portfolio-item.right img {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
             animation: fadeInRight 1s forwards;
         }
 
-        /* Fade effects for images on scroll */
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
@@ -129,13 +133,6 @@
                 opacity: 1;
                 transform: translateX(0);
             }
-        }
-
-        /* Soft fade effect for images' edges */
-        .portfolio-item img {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
-            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
         }
 
     </style>
@@ -175,11 +172,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
