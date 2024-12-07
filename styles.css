@@ -38,7 +38,7 @@ header p {
     justify-content: center;
     gap: 2rem;
     margin: 2rem 0;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .categories a {
@@ -82,9 +82,11 @@ header p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
+    height: auto;
+    max-height: 80vh;
     overflow: hidden;
-    flex-wrap: wrap; /* Allow items to adjust based on screen size */
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
 .portfolio-item img {
@@ -109,6 +111,7 @@ header p {
     z-index: 2;
     max-width: 40%;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .portfolio-text p {
@@ -154,7 +157,7 @@ header p {
 .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
 
 /* Media Queries for Mobile Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     header h1 {
         font-size: 2.5rem;
     }
@@ -165,14 +168,15 @@ header p {
 
     .categories {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .portfolio-item {
-        height: auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: auto;
+        max-height: none;
     }
 
     .portfolio-item img {
@@ -181,8 +185,33 @@ header p {
     }
 
     .portfolio-text {
-        max-width: 80%;
+        max-width: 90%;
         padding: 1rem;
+    }
+
+    .portfolio-text p {
+        font-size: 1.2rem;
+    }
+
+    .services .service-button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .categories a {
+        font-size: 1rem;
+        padding: 0.5rem;
     }
 
     .service-details h2 {
@@ -193,6 +222,14 @@ header p {
         font-size: 1.2rem;
     }
 
+    .portfolio-item {
+        margin-bottom: 1rem;
+    }
+
+    .portfolio-text p {
+        font-size: 1.4rem;
+    }
+
     .categories a {
         font-size: 1rem;
     }
@@ -200,23 +237,16 @@ header p {
     .services .service-button {
         font-size: 1rem;
         padding: 1rem;
-        width: 100%;
-        text-align: center;
     }
 }
 
-/* Smaller Screen Adjustments for Extra Mobile Devices */
 @media screen and (max-width: 480px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     header p {
         font-size: 0.9rem;
-    }
-
-    .service-details p {
-        font-size: 1rem;
     }
 
     .categories a {
@@ -225,10 +255,19 @@ header p {
     }
 
     .portfolio-text p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .services .service-button {
         font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .service-details h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-details p {
+        font-size: 1rem;
     }
 }
