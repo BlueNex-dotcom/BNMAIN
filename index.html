@@ -27,6 +27,14 @@
             background: #0d1117;
             color: #c9d1d9;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        header.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         header h1 {
@@ -47,6 +55,14 @@
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .categories.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .categories a {
@@ -73,6 +89,14 @@
             color: #c9d1d9;
             margin-bottom: 4rem;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .quote-section.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .quote-section p {
@@ -96,6 +120,14 @@
             color: #c9d1d9;
             margin-top: 2rem;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .services.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .services h2 {
@@ -133,7 +165,14 @@
             justify-content: flex-start;
             height: 100vh;
             overflow: hidden;
-            transition: transform 1s ease; /* Smooth transition when scrolling */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .portfolio-item.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .portfolio-item img {
@@ -259,7 +298,7 @@
     </div>
 
     <!-- Services Section -->
-    <div class="services" id="services">
+    <div class="services">
         <h2>Our Services</h2>
         <p>Explore our range of services designed to help your business succeed in the digital world.</p>
         <div class="categories">
@@ -297,8 +336,27 @@
     <div class="streak"></div>
     <div class="streak"></div>
     <div class="streak"></div>
+
+    <script>
+        // Intersection Observer to trigger animations when elements come into view
+        const elements = document.querySelectorAll('.categories, header, .quote-section, .services, .portfolio-item');
+        const options = {
+            threshold: 0.5 // Element should be at least 50% visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, options);
+
+        elements.forEach(element => observer.observe(element));
+    </script>
 </body>
 </html>
+
 
 
 
