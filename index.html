@@ -62,11 +62,11 @@
         }
 
         nav ul li a {
-            font-family: 'Lato', sans-serif; /* Set Lato for navigation links */
+            font-family: 'Lato', sans-serif;
             font-size: 18px;
             color: #fff;
             text-transform: uppercase;
-            font-weight: 400; /* Regular weight */
+            font-weight: 400;
         }
 
         /* Portfolio Section */
@@ -86,33 +86,37 @@
 
         .portfolio .portfolio-item {
             position: relative;
-            width: 100%;
-            height: 400px;
-            margin-bottom: 40px;
+            width: 80%;
+            max-width: 1000px;
+            height: 250px;
+            margin: 30px auto;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             transition: transform 0.3s ease;
-            background-color: #1a1a1a;
             border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background-color: #1a1a1a;
+            position: relative;
+            z-index: 1;
         }
 
         .portfolio .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
+            opacity: 0.85;
             transition: opacity 0.5s ease;
         }
 
         .portfolio .portfolio-item .portfolio-text {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
+            bottom: 15px;
+            left: 10%;
+            right: 10%;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 8px;
             color: #fff;
             font-size: 1.5rem;
@@ -122,6 +126,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 2;
         }
 
         /* Animations */
@@ -180,7 +185,7 @@
 
         @media (max-width: 768px) {
             .portfolio .portfolio-item {
-                height: 300px;
+                height: 200px;
             }
 
             .portfolio .portfolio-text {
@@ -210,15 +215,15 @@
 
     <section id="portfolio" class="portfolio">
         <h2>Our Portfolio</h2>
-        <div class="portfolio-item left fade-up">
+        <div class="portfolio-item fade-up">
             <img src="https://via.placeholder.com/1200x800/1111FF/FFFFFF?text=Website+1" alt="Website 1">
             <div class="portfolio-text">“This is the best website design experience we've had. Our sales have increased significantly.” - Client Name</div>
         </div>
-        <div class="portfolio-item right fade-up">
+        <div class="portfolio-item fade-up">
             <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+2" alt="Website 2">
             <div class="portfolio-text">“BlueNex helped us create a seamless online store. The experience was excellent!” - Client Name</div>
         </div>
-        <div class="portfolio-item left fade-up">
+        <div class="portfolio-item fade-up">
             <img src="https://via.placeholder.com/1200x800/3333FF/FFFFFF?text=Website+3" alt="Website 3">
             <div class="portfolio-text">“Our brand visibility has skyrocketed. Couldn't be happier with BlueNex!” - Client Name</div>
         </div>
@@ -256,3 +261,4 @@
 </body>
 
 </html>
+
