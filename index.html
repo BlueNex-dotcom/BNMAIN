@@ -8,7 +8,7 @@
     <meta name="keywords" content="BlueNex, website design, AI-powered websites, e-commerce solutions">
     <meta name="author" content="BlueNex">
     <title>BlueNex - AI-Powered Websites</title>
-    
+
     <!-- Google Fonts for Lato -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
 
@@ -71,7 +71,7 @@
 
         /* Portfolio Section */
         .portfolio {
-            padding: 60px 20px;
+            padding: 60px 0;
             background-color: #222;
             animation: fadeIn 2s ease-in-out;
         }
@@ -84,49 +84,57 @@
             font-weight: bold;
         }
 
+        /* Portfolio Item */
         .portfolio-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 50px 0; /* Increased margin for spacing */
             position: relative;
             z-index: 1;
             width: 100%;
-            height: 400px; /* Increased height */
+            height: 400px;
+            margin: 50px 0; /* Increased margin for spacing */
             overflow: hidden;
             transition: transform 0.3s ease;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .portfolio-item img {
-            width: 600px; /* Increased width for more rectangular shape */
-            height: 350px; /* Slightly smaller height to keep it rectangular */
+        /* Left side images */
+        .portfolio-item.left img {
+            width: 110%; /* Slightly larger to make images stand out */
+            height: 100%;
             object-fit: cover;
-            opacity: 0.85;
-            transition: opacity 0.5s ease;
-            border-radius: 8px;
+            margin-left: -10%; /* Remove gap between image and screen edge */
+            opacity: 0.9;
+        }
+
+        /* Right side images */
+        .portfolio-item.right img {
+            width: 110%; /* Slightly larger to make images stand out */
+            height: 100%;
+            object-fit: cover;
+            margin-right: -10%; /* Remove gap between image and screen edge */
+            opacity: 0.9;
         }
 
         .portfolio-item .portfolio-text {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 500px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 8px;
-            color: #fff;
+            transform: translateY(-50%);
             font-size: 1.5rem;
             line-height: 1.5;
             text-align: center;
+            color: white;
+            max-width: 450px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
             opacity: 0;
-            transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        /* Animations */
+        /* Animation for FadeIn */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -136,6 +144,7 @@
             }
         }
 
+        /* Scroll Animation */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -147,12 +156,12 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .portfolio-item {
                 flex-direction: column;
                 align-items: center;
-                height: auto; /* Allow flexibility for smaller screens */
+                height: auto;
             }
 
             .portfolio-item .portfolio-text {
@@ -160,8 +169,9 @@
             }
 
             .portfolio-item img {
-                width: 300px; /* Smaller image size on mobile */
-                height: 200px;
+                width: 100%;
+                height: 250px;
+                margin: 0;
             }
         }
     </style>
@@ -181,24 +191,24 @@
         <h2>Our Portfolio</h2>
 
         <!-- Portfolio Item 1 (Image left, Text right) -->
-        <div class="portfolio-item fade-up">
-            <img src="https://via.placeholder.com/600x350/1111FF/FFFFFF?text=Website+1" alt="Website 1">
+        <div class="portfolio-item left fade-up">
+            <img src="https://via.placeholder.com/1200x400/1111FF/FFFFFF?text=Website+1" alt="Website 1">
             <div class="portfolio-text">
                 <p>“This is the best website design experience we've had. Our sales have increased significantly.” - Client Name</p>
             </div>
         </div>
 
         <!-- Portfolio Item 2 (Image right, Text left) -->
-        <div class="portfolio-item fade-up">
+        <div class="portfolio-item right fade-up">
             <div class="portfolio-text">
                 <p>“BlueNex helped us create a seamless online store. The experience was excellent!” - Client Name</p>
             </div>
-            <img src="https://via.placeholder.com/600x350/2222FF/FFFFFF?text=Website+2" alt="Website 2">
+            <img src="https://via.placeholder.com/1200x400/2222FF/FFFFFF?text=Website+2" alt="Website 2">
         </div>
 
         <!-- Portfolio Item 3 (Image left, Text right) -->
-        <div class="portfolio-item fade-up">
-            <img src="https://via.placeholder.com/600x350/3333FF/FFFFFF?text=Website+3" alt="Website 3">
+        <div class="portfolio-item left fade-up">
+            <img src="https://via.placeholder.com/1200x400/3333FF/FFFFFF?text=Website+3" alt="Website 3">
             <div class="portfolio-text">
                 <p>“Our brand visibility has skyrocketed. Couldn't be happier with BlueNex!” - Client Name</p>
             </div>
@@ -228,3 +238,4 @@
 </body>
 
 </html>
+
