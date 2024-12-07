@@ -90,10 +90,9 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            z-index: 1;
             width: 100%;
-            height: 400px;
-            margin: 50px 0; /* Increased margin for spacing */
+            height: 500px; /* Increased height for taller images */
+            margin: 50px 0;
             overflow: hidden;
             transition: transform 0.3s ease;
             border-radius: 10px;
@@ -102,20 +101,22 @@
 
         /* Left side images */
         .portfolio-item.left img {
-            width: 110%; /* Slightly larger to make images stand out */
+            width: 120%; /* Slightly larger to make images stand out */
             height: 100%;
             object-fit: cover;
-            margin-left: -10%; /* Remove gap between image and screen edge */
+            margin-left: -10%;
             opacity: 0.9;
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* Fades out to the right */
         }
 
         /* Right side images */
         .portfolio-item.right img {
-            width: 110%; /* Slightly larger to make images stand out */
+            width: 120%;
             height: 100%;
             object-fit: cover;
-            margin-right: -10%; /* Remove gap between image and screen edge */
+            margin-right: -10%;
             opacity: 0.9;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); /* Fades out to the left */
         }
 
         .portfolio-item .portfolio-text {
@@ -132,6 +133,15 @@
             border-radius: 8px;
             opacity: 0;
             transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 2; /* Ensures the text stays on top */
+        }
+
+        .portfolio-item.left .portfolio-text {
+            right: 10%; /* Text positioned on the right for left images */
+        }
+
+        .portfolio-item.right .portfolio-text {
+            left: 10%; /* Text positioned on the left for right images */
         }
 
         /* Animation for FadeIn */
@@ -192,7 +202,7 @@
 
         <!-- Portfolio Item 1 (Image left, Text right) -->
         <div class="portfolio-item left fade-up">
-            <img src="https://via.placeholder.com/1200x400/1111FF/FFFFFF?text=Website+1" alt="Website 1">
+            <img src="https://via.placeholder.com/1200x600/1111FF/FFFFFF?text=Website+1" alt="Website 1">
             <div class="portfolio-text">
                 <p>“This is the best website design experience we've had. Our sales have increased significantly.” - Client Name</p>
             </div>
@@ -203,12 +213,12 @@
             <div class="portfolio-text">
                 <p>“BlueNex helped us create a seamless online store. The experience was excellent!” - Client Name</p>
             </div>
-            <img src="https://via.placeholder.com/1200x400/2222FF/FFFFFF?text=Website+2" alt="Website 2">
+            <img src="https://via.placeholder.com/1200x600/2222FF/FFFFFF?text=Website+2" alt="Website 2">
         </div>
 
         <!-- Portfolio Item 3 (Image left, Text right) -->
         <div class="portfolio-item left fade-up">
-            <img src="https://via.placeholder.com/1200x400/3333FF/FFFFFF?text=Website+3" alt="Website 3">
+            <img src="https://via.placeholder.com/1200x600/3333FF/FFFFFF?text=Website+3" alt="Website 3">
             <div class="portfolio-text">
                 <p>“Our brand visibility has skyrocketed. Couldn't be happier with BlueNex!” - Client Name</p>
             </div>
@@ -238,4 +248,5 @@
 </body>
 
 </html>
+
 
