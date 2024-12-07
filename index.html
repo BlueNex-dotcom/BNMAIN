@@ -1,3 +1,9 @@
+tst-img-1.jpg
+
+tst-img-2.jpg
+
+tst-img-3.jpg
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +24,13 @@
             padding: 0;
         }
 
-        /* General Styling */
-        * {
-            box-sizing: border-box;
-        }
-
         /* Header Section */
         header {
             position: relative;
             text-align: center;
-            padding: 3rem 2rem;
-            background-color: #0d1117;
+            padding: 2rem 1rem;
+            background: #0d1117;
             color: #c9d1d9;
-            border-bottom: 1px solid #56b6c2;
         }
 
         header h1 {
@@ -45,13 +45,12 @@
             color: #868e96;
         }
 
-        /* Categories Section */
+        /* Categories Section (Moved Above Quote Section) */
         .categories {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
-            padding: 0 1rem;
         }
 
         .categories a {
@@ -59,10 +58,10 @@
             font-size: 1.2rem;
             font-weight: bold;
             color: #56b6c2;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             border: 2px solid #56b6c2;
             border-radius: 25px;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
 
         .categories a:hover {
@@ -80,7 +79,7 @@
         }
 
         .quote-section p {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 300;
             margin-bottom: 1.5rem;
             line-height: 1.5;
@@ -99,7 +98,6 @@
             text-align: center;
             color: #c9d1d9;
             margin-top: 2rem;
-            border-top: 1px solid #56b6c2;
         }
 
         .services h2 {
@@ -142,10 +140,9 @@
         .portfolio-item img {
             position: absolute;
             top: 0;
-            height: 80%;
-            width: 75%;
+            height: 100%;
+            width: 70%;
             object-fit: cover;
-            transition: opacity 0.5s ease;
         }
 
         .portfolio-item.left img {
@@ -164,6 +161,8 @@
         }
 
         .portfolio-text p {
+            position: relative;
+            z-index: 3;
             font-size: 1.6rem;
             line-height: 1.4;
             background: #222437;
@@ -171,7 +170,6 @@
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0;
         }
 
         /* Thought Bubble Tail */
@@ -200,34 +198,45 @@
             transform: translateY(-50%);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .portfolio-item img {
-                width: 100%;
-                height: auto;
-            }
+        .portfolio-item.left .portfolio-text {
+            margin-left: auto;
+            text-align: left;
+        }
 
-            .portfolio-item.left img, .portfolio-item.right img {
-                width: 100%;
-                height: 100%;
-            }
+        .portfolio-item.right .portfolio-text {
+            margin-right: auto;
+            text-align: right;
+        }
 
-            .portfolio-item {
-                flex-direction: column;
-                text-align: center;
-            }
+        /* Background Streak Animation */
+        .streak {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, #2222FF, transparent);
+            opacity: 0.6;
+            animation: streak-animation 2s linear infinite;
+        }
 
-            .portfolio-text {
-                max-width: 90%;
-                margin: 0 auto;
+        @keyframes streak-animation {
+            0% {
+                transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
             }
-
-            .categories {
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 3rem;
+            30% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
+                opacity: 0;
             }
         }
+
+        .streak:nth-child(1) { --x-pos: 0.1; }
+        .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
+        .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
+        .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
+        .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
     </style>
 </head>
 <body>
@@ -237,7 +246,7 @@
         <p>Your Gateway to Stunning Web Design</p>
     </header>
 
-    <!-- Categories Section -->
+    <!-- Categories Section (Moved Above Quote Section) -->
     <div class="categories">
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
@@ -263,21 +272,21 @@
 
     <!-- Portfolio Section -->
     <div class="portfolio-item left" id="portfolio">
-        <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+1" alt="Website 1">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
         <div class="portfolio-text">
             <p>"Amazing design and user experience!" - Client 1</p>
         </div>
     </div>
 
     <div class="portfolio-item right">
-        <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+2" alt="Website 2">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
         <div class="portfolio-text">
             <p>"Highly professional and creative work!" - Client 2</p>
         </div>
     </div>
 
     <div class="portfolio-item left">
-        <img src="https://via.placeholder.com/1200x800/2222FF/FFFFFF?text=Website+3" alt="Website 3">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
         <div class="portfolio-text">
             <p>"Best website we've had so far!" - Client 3</p>
         </div>
