@@ -48,6 +48,8 @@
             max-width: 40%;
             padding: 2rem;
             color: #c9d1d9;
+            font-size: 1.8rem; /* Increased text size */
+            line-height: 1.4;
         }
 
         .portfolio-item.left .portfolio-text {
@@ -58,6 +60,19 @@
         .portfolio-item.right .portfolio-text {
             margin-right: auto;
             text-align: right;
+        }
+
+        .portfolio-text p {
+            position: relative;
+            z-index: 3;
+        }
+
+        .portfolio-item.left .portfolio-text p {
+            margin-left: -1.5rem; /* Slight overlap on the left */
+        }
+
+        .portfolio-item.right .portfolio-text p {
+            margin-right: -1.5rem; /* Slight overlap on the right */
         }
 
         /* Fading Effect */
@@ -104,6 +119,7 @@
     </div>
 </body>
 </html>
+
 
 
 
