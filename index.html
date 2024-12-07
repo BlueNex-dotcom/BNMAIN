@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BlueNex - AI-powered, custom-built websites for businesses.">
+    <meta name="keywords" content="BlueNex, website design, AI-powered websites, e-commerce solutions">
+    <meta name="author" content="BlueNex">
+    <title>BlueNex - AI-Powered Websites</title>
+    <!-- Link to Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Spectral+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #111;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Spectral SC', serif;
+            font-weight: 500;
+            color: #00b0ff; /* Light blue for headings */
+        }
+
+        a {
+            color: #00b0ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #222;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #222, #111);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Section */
+        .services {
+            padding: 60px 20px;
+            background-color: #222;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #00b0ff;
+        }
+
+        .services .service-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .services .service {
+            background: #333;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s ease;
+        }
+
+        .services .service:hover {
+            transform: scale(1.05);
+        }
+
+        .services .service h3 {
+            color: #00b0ff;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .services .service p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 20px;
+            background-color: #111;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #00b0ff;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact form input, .contact form textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact form button {
+            width: 80%;
+            padding: 12px;
+            background-color: #00b0ff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact form button:hover {
+            background-color: #008cc1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services .service-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services .service {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Welcome to BlueNex</h1>
+            <p>AI-powered websites tailored for your business needs. Let us help you grow and innovate.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service fade-up">
+                <h3>AI-Powered Web Design</h3>
+                <p>Custom websites built with the power of AI to optimize your online presence and user experience.</p>
+            </div>
+            <div class="service fade-up">
+                <h3>E-Commerce Solutions</h3>
+                <p>Seamlessly integrate e-commerce features into your website to drive sales and engage customers.</p>
+            </div>
+            <div class="service fade-up">
+                <h3>SEO Optimization</h3>
+                <p>Boost your website's visibility on search engines with tailored SEO strategies that drive organic traffic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BlueNex. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const fadeUpElements = document.querySelectorAll('.fade-up');
+        window.addEventListener('scroll', () => {
+            fadeUpElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                if (elementPosition < window.innerHeight - 50) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        // Initial scroll check to animate on load
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+
+</html>
