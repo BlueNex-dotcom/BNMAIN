@@ -1,95 +1,119 @@
-/* General Styling */
+/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
-  }
-  a {
-    text-decoration: none;
-  }
-  section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  .section-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  .btn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Navbar */
-  #navbar {
+    background-color: #121212; /* Dark background */
+    color: #fff; /* Light text color */
+}
+
+/* Shooting Stars Background */
+.streak {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    z-index: 1000;
-  }
-  nav {
+    height: 100%;
+    background: url('path-to-your-shooting-stars-image.png') repeat;
+    animation: moveStars 15s infinite linear;
+    z-index: -1; /* Ensures it stays in the background */
+}
+
+/* Animation for shooting stars */
+@keyframes moveStars {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 80px 20px 50px;
+    background-color: #2c3e50;
+}
+
+/* Portfolio Section */
+.portfolio {
+    margin-top: 50px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.services button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.services button:hover {
+    background-color: #2c3e50;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+}
+
+/* Portfolio Example Styling */
+.portfolio-example {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-  }
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  .nav-links li {
-    margin: 0 10px;
-  }
-  .nav-links a {
-    color: #007BFF;
-    font-weight: 500;
-  }
-  
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    background: linear-gradient(to right, #007BFF, #0056b3);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .hero h1 {
-    font-size: 3em;
-  }
-  .hero .highlight {
-    color: #FFD700;
-  }
-  
-  /* Animations */
-  [data-animate="fade-in"] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  [data-animate-visible="true"] {
+    margin-bottom: 60px;
+}
+
+.portfolio-example:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.portfolio-example img {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-example img:hover {
     opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-    .hero h1 {
-      font-size: 2em;
-    }
-  }
-  
+}
+
+.portfolio-text {
+    width: 35%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+.portfolio-text p {
+    font-style: italic;
+}
+
+/* Make Portfolio Images Fade Out */
+.portfolio-example:nth-child(odd) img {
+    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.portfolio-example:nth-child(even) img {
+    background: linear-gradient(to left, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+}
