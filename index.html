@@ -99,18 +99,58 @@
             background-color: #0056b3;
         }
 
-        /* Other styles remain unchanged... */
+        /* Portfolio Section */
+        .portfolio-item {
+            position: relative;
+            width: 45%;
+            margin: 2rem 2.5%;
+            display: inline-block;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .portfolio-text {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            margin: 3rem 0;
+            font-style: italic;
+            color: #777777;
+        }
+
+        /* Floating Effect on Images */
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
     </style>
 </head>
 <body>
-    <!-- Services Section -->
+    <!-- Services Section (Overlay) -->
     <div class="services">
         <div class="service-group">
             <a href="web-design.html" class="service-button">Web Design</a>
             <a href="e-commerce.html" class="service-button">E-Commerce</a>
             <a href="branding.html" class="service-button">Branding</a>
         </div>
-        <a href="contact.html" class="contact-button">Contact</a>
+        <a href="contact.html" class="contact-button">Contact</a> <!-- Contact button added -->
     </div>
 
     <!-- Header Section -->
@@ -148,4 +188,3 @@
     </div>
 </body>
 </html>
-
