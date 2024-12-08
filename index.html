@@ -11,7 +11,6 @@
             background-color: #0d1117;
             color: #c9d1d9;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         h1, h2, p {
@@ -23,7 +22,7 @@
         header {
             position: relative;
             text-align: center;
-            padding: 4rem 1rem; /* Increased padding for better spacing */
+            padding: 4rem 1rem;
             background: #0d1117;
             color: #c9d1d9;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
@@ -286,19 +285,19 @@
 
     <!-- Categories Section -->
     <div class="categories">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#portfolio" class="category-button">Portfolio</a>
+        <a href="#services" class="category-button">Services</a>
+        <a href="#quote" class="category-button">Quote</a>
     </div>
 
     <!-- Quote Section -->
-    <div class="quote-section">
+    <div class="quote-section" id="quote">
         <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
         <span>- BlueNex Team</span>
     </div>
 
     <!-- Services Section -->
-    <div class="services">
+    <div class="services" id="services">
         <h2>Our Services</h2>
         <p>Explore our range of services designed to help your business succeed in the digital world.</p>
         <div class="categories">
@@ -316,51 +315,4 @@
         </div>
     </div>
 
-    <div class="portfolio-item right">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
-        <div class="portfolio-text">
-            <p>"Highly professional and creative work!" - Client 2</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item left">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
-        <div class="portfolio-text">
-            <p>"Best website we've had so far!" - Client 3</p>
-        </div>
-    </div>
-
-    <!-- Background Streaks -->
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-
-    <script>
-        // Intersection Observer to trigger animations when elements come into view
-        const elements = document.querySelectorAll('.categories, header, .quote-section, .services, .portfolio-item');
-        const options = {
-            threshold: 0.5 // Element should be at least 50% visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, options);
-
-        elements.forEach(element => observer.observe(element));
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
+   
