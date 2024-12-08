@@ -8,10 +8,13 @@
         body {
             margin: 0;
             font-family: 'Lato', sans-serif;
-            background-color: #ffffff; /* Light background */
-            color: #000000; /* Black text for contrast */
+            background-color: #ffffff;
+            color: #000000;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            background-image: url('https://www.transparenttextures.com/patterns/gray-floral.png'); /* Subtle pattern */
+            background-repeat: repeat;
+            background-size: auto;
         }
 
         h1, h2, p {
@@ -24,9 +27,9 @@
             position: relative;
             text-align: center;
             padding: 4rem 1rem;
-            background: #ffffff; /* Match body background */
-            color: #000000; /* Black text */
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency for pattern to show through */
+            color: #000000;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
@@ -38,7 +41,7 @@
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #555555; /* Slightly lighter gray for secondary text */
+            color: #555555;
         }
 
         /* Services Section (Overlay) */
@@ -47,7 +50,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #f8f9fa; /* Soft gray background */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 0.5rem 1rem;
             text-align: center;
             z-index: 1000;
@@ -57,10 +60,10 @@
         .services .service-button {
             text-decoration: none;
             font-size: 1rem;
-            color: #000000; /* Black text */
-            background-color: #ffffff; /* White background */
+            color: #000000;
+            background-color: #ffffff;
             padding: 0.5rem 1rem;
-            border: 2px solid #000000; /* Black border for contrast */
+            border: 2px solid #000000;
             border-radius: 25px;
             margin: 0 0.5rem;
             display: inline-block;
@@ -68,12 +71,12 @@
         }
 
         .services .service-button:hover {
-            background-color: #f0f0f0; /* Subtle hover effect */
+            background-color: #f0f0f0;
         }
 
         /* Quote Section */
         .quote-section {
-            background-color: #f8f9fa; /* Soft gray */
+            background-color: rgba(248, 249, 250, 0.9);
             padding: 2rem 1rem;
             text-align: center;
             color: #000000;
@@ -90,7 +93,7 @@
 
         .quote-section span {
             font-size: 1.2rem;
-            color: #007bff; /* Blue for emphasis */
+            color: #007bff;
             font-weight: bold;
         }
 
@@ -111,7 +114,7 @@
             width: 60%;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Light shadow for images */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .portfolio-item.left img {
@@ -134,7 +137,7 @@
             z-index: 3;
             font-size: 1.4rem;
             line-height: 1.4;
-            background: #f8f9fa; /* Light background for thought bubbles */
+            background: rgba(248, 249, 250, 0.9);
             color: #000000;
             padding: 1.5rem;
             border-radius: 15px;
@@ -149,7 +152,7 @@
             left: -20px;
             border-width: 10px 20px 10px 0;
             border-style: solid;
-            border-color: transparent #f8f9fa transparent transparent;
+            border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
             transform: translateY(-50%);
         }
 
@@ -160,7 +163,7 @@
             right: -20px;
             border-width: 10px 0 10px 20px;
             border-style: solid;
-            border-color: transparent transparent transparent #f8f9fa;
+            border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
             transform: translateY(-50%);
         }
 
@@ -218,6 +221,3 @@
     </div>
 </body>
 </html>
-
-
-
