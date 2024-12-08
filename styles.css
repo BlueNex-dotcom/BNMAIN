@@ -213,6 +213,29 @@ header p {
 .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
 .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
 
+/* Quote Section */
+.quote-section {
+    background-color: transparent; /* Make the background transparent */
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #ffffff; /* Set the text color to white */
+    margin: 2rem 0;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quote-section p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.quote-section span {
+    font-size: 1.2rem;
+    color: #007bff; /* Retain blue color for the author */
+    font-weight: bold;
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 1024px) {
     header h1 {
