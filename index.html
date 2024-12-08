@@ -23,14 +23,14 @@
         header {
             position: relative;
             text-align: center;
-            padding: 4rem 1rem; /* Increased padding for better spacing */
+            padding: 4rem 1rem;
             background: #0d1117;
             color: #c9d1d9;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease;
-            z-index: 2; /* Ensure it's above the services section */
+            z-index: 2;
         }
 
         header.show {
@@ -50,81 +50,18 @@
             color: #868e96;
         }
 
-        /* Categories Section */
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .categories.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .categories a {
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #56b6c2;
-            padding: 0.5rem 1rem;
-            border: 2px solid #56b6c2;
-            border-radius: 25px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .categories a:hover {
-            background-color: #56b6c2;
-            color: #0d1117;
-        }
-
-        /* Quote Section */
-        .quote-section {
-            background-color: #222437;
-            padding: 4rem 2rem;
-            text-align: center;
-            color: #c9d1d9;
-            margin-bottom: 4rem;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for separation */
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .quote-section.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .quote-section p {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .quote-section span {
-            font-size: 1.2rem;
-            color: #56b6c2;
-            font-weight: bold;
-        }
-
-        /* Smaller Services Section (Fixed at top and much smaller) */
+        /* Compact Services Section */
         .services {
             background-color: #222437;
-            padding: 0.4rem 1rem; /* Further reduced padding to make the section very small */
+            padding: 0.2rem 0; /* Reduced padding to make it smaller */
             text-align: center;
             color: #c9d1d9;
             position: fixed;
-            top: 0; /* Position it at the very top */
+            top: 0;
             left: 0;
             width: 100%;
-            z-index: 1; /* Ensure it stays at the top but below header */
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateY(-50px);
             transition: all 1s ease;
@@ -135,20 +72,19 @@
             transform: translateY(0);
         }
 
-        .services h2 {
-            font-size: 1rem; /* Smaller font size for the heading */
-            font-weight: bold;
-            margin-bottom: 0.2rem;
+        .services .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; /* Adjusted spacing for compact layout */
         }
 
         .services .service-button {
             text-decoration: none;
-            font-size: 0.9rem; /* Smaller font size for buttons */
+            font-size: 0.8rem; /* Smaller font size for compactness */
             color: white;
             background-color: black;
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 50px;
-            margin: 0.2rem;
             display: inline-block;
             transition: background-color 0.3s ease-in-out;
         }
@@ -210,43 +146,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Thought Bubble Tail */
-        .portfolio-item.left .portfolio-text p::after,
-        .portfolio-item.right .portfolio-text p::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-        }
-
-        .portfolio-item.left .portfolio-text p::after {
-            top: 50%;
-            left: -20px;
-            border-width: 10px 20px 10px 0;
-            border-color: transparent #222437 transparent transparent;
-            transform: translateY(-50%);
-        }
-
-        .portfolio-item.right .portfolio-text p::after {
-            top: 50%;
-            right: -20px;
-            border-width: 10px 0 10px 20px;
-            border-color: transparent transparent transparent #222437;
-            transform: translateY(-50%);
-        }
-
-        .portfolio-item.left .portfolio-text {
-            margin-left: auto;
-            text-align: left;
-        }
-
-        .portfolio-item.right .portfolio-text {
-            margin-right: auto;
-            text-align: right;
-        }
-
-        /* Background Streak Animation */
+        /* Intersection Observer Animation */
         .streak {
             position: absolute;
             width: 2px;
@@ -269,18 +169,11 @@
                 opacity: 0;
             }
         }
-
-        .streak:nth-child(1) { --x-pos: 0.1; }
-        .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
-        .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
-        .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
-        .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
     </style>
 </head>
 <body>
-    <!-- Services Section (Fixed at the top) -->
+    <!-- Compact Services Section -->
     <div class="services" id="services">
-        <h2>Our Services</h2>
         <div class="categories">
             <a href="web-design.html" class="service-button">Web Design</a>
             <a href="e-commerce.html" class="service-button">E-Commerce</a>
@@ -294,19 +187,6 @@
         <p>Your Gateway to Stunning Web Design</p>
     </header>
 
-    <!-- Categories Section -->
-    <div class="categories">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
-    </div>
-
-    <!-- Quote Section -->
-    <div class="quote-section">
-        <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
-        <span>- BlueNex Team</span>
-    </div>
-
     <!-- Portfolio Section -->
     <div class="portfolio-item left" id="portfolio">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
@@ -314,27 +194,6 @@
             <p>"Amazing design and user experience!" - Client 1</p>
         </div>
     </div>
-
-    <div class="portfolio-item right">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
-        <div class="portfolio-text">
-            <p>"Highly professional and creative work!" - Client 2</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item left">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
-        <div class="portfolio-text">
-            <p>"Best website we've had so far!" - Client 3</p>
-        </div>
-    </div>
-
-    <!-- Background Streaks -->
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
-    <div class="streak"></div>
 
     <script>
         // Intersection Observer to trigger animations when elements come into view
