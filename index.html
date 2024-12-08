@@ -99,37 +99,38 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            height: 100vh;
+            height: 70vh; /* Reduced height for a smaller appearance */
             overflow: hidden;
         }
 
         .portfolio-item img {
             position: absolute;
             top: 0;
-            height: 100%;
-            width: 70%;
+            height: 90%; /* Reduced image height */
+            width: 60%; /* Reduced width */
             object-fit: cover;
+            border-radius: 15px; /* Subtle rounded corners */
         }
 
         .portfolio-item.left img {
-            left: 0;
+            left: 10%; /* Adjusted to fit reduced size */
         }
 
         .portfolio-item.right img {
-            right: 0;
+            right: 10%; /* Adjusted to fit reduced size */
         }
 
         .portfolio-text {
             position: relative;
             z-index: 2;
-            max-width: 40%;
-            padding: 2rem;
+            max-width: 30%; /* Slightly smaller text block */
+            padding: 1.5rem;
         }
 
         .portfolio-text p {
             position: relative;
             z-index: 3;
-            font-size: 1.6rem;
+            font-size: 1.4rem; /* Slightly smaller font */
             line-height: 1.4;
             background: #222437;
             color: #c9d1d9;
@@ -215,4 +216,5 @@
     </div>
 </body>
 </html>
+
 
