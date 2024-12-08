@@ -27,15 +27,6 @@
             background: #0d1117;
             color: #c9d1d9;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-            z-index: 2;
-        }
-
-        header.show {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         header h1 {
@@ -50,41 +41,27 @@
             color: #868e96;
         }
 
-        /* Compact Services Section */
+        /* Services Section (Overlay) */
         .services {
-            background-color: #222437;
-            padding: 0.2rem 0; /* Reduced padding to make it smaller */
-            text-align: center;
-            color: #c9d1d9;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(-50px);
-            transition: all 1s ease;
-        }
-
-        .services.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .services .categories {
-            display: flex;
-            justify-content: center;
-            gap: 1rem; /* Adjusted spacing for compact layout */
+            background-color: #222437;
+            padding: 0.5rem 1rem; /* Minimized height */
+            text-align: center;
+            z-index: 1000; /* Ensure it stays on top */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .services .service-button {
             text-decoration: none;
-            font-size: 0.8rem; /* Smaller font size for compactness */
+            font-size: 1rem;
             color: white;
             background-color: black;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin: 0 0.5rem;
             display: inline-block;
             transition: background-color 0.3s ease-in-out;
         }
@@ -101,14 +78,6 @@
             justify-content: flex-start;
             height: 100vh;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .portfolio-item.show {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .portfolio-item img {
@@ -145,40 +114,14 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* Intersection Observer Animation */
-        .streak {
-            position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(to bottom, #2222FF, transparent);
-            opacity: 0.6;
-            animation: streak-animation 2s linear infinite;
-        }
-
-        @keyframes streak-animation {
-            0% {
-                transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
-                opacity: 0;
-            }
-            30% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Compact Services Section -->
-    <div class="services" id="services">
-        <div class="categories">
-            <a href="web-design.html" class="service-button">Web Design</a>
-            <a href="e-commerce.html" class="service-button">E-Commerce</a>
-            <a href="branding.html" class="service-button">Branding</a>
-        </div>
+    <!-- Services Section -->
+    <div class="services">
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
     </div>
 
     <!-- Header Section -->
@@ -195,22 +138,19 @@
         </div>
     </div>
 
-    <script>
-        // Intersection Observer to trigger animations when elements come into view
-        const elements = document.querySelectorAll('.categories, header, .quote-section, .services, .portfolio-item');
-        const options = {
-            threshold: 0.5 // Element should be at least 50% visible
-        };
+    <div class="portfolio-item right">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
+        <div class="portfolio-text">
+            <p>"Highly professional and creative work!" - Client 2</p>
+        </div>
+    </div>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, options);
-
-        elements.forEach(element => observer.observe(element));
-    </script>
+    <div class="portfolio-item left">
+        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
+        <div class="portfolio-text">
+            <p>"Best website we've had so far!" - Client 3</p>
+        </div>
+    </div>
 </body>
 </html>
+
