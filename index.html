@@ -74,129 +74,43 @@
         }
 
         /* Positioning service buttons to the left */
-        .services {
-            text-align: left;
-            padding: 0.5rem 2rem;
-        }
-
-        /* Quote Section */
-        .quote-section {
-            background-color: rgba(248, 249, 250, 0.9);
-            padding: 2rem 1rem;
-            text-align: center;
-            color: #000000;
-            margin: 2rem 0;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .quote-section p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .quote-section span {
-            font-size: 1.2rem;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        /* Portfolio Section */
-        .portfolio-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            height: 70vh;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .portfolio-item img {
-            position: absolute;
-            top: 0;
-            height: 90%;
-            width: 60%;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .portfolio-item.left img {
-            left: 10%;
-        }
-
-        .portfolio-item.right img {
-            right: 10%;
-        }
-
-        /* Floating Effect on Hover */
-        .portfolio-item img:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .portfolio-text {
-            position: relative;
-            z-index: 2;
-            max-width: 30%;
-            padding: 1.5rem;
-        }
-
-        .portfolio-text p {
-            position: relative;
-            z-index: 3;
-            font-size: 1.4rem;
-            line-height: 1.4;
-            background: rgba(248, 249, 250, 0.9);
-            color: #000000;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Thought Bubble Tail */
-        .portfolio-item.left .portfolio-text p::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -20px;
-            border-width: 10px 20px 10px 0;
-            border-style: solid;
-            border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
-            transform: translateY(-50%);
-        }
-
-        .portfolio-item.right .portfolio-text p::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            border-width: 10px 0 10px 20px;
-            border-style: solid;
-            border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
-            transform: translateY(-50%);
-        }
-
-        .portfolio-item.left .portfolio-text {
-            margin-left: auto;
+        .services .service-group {
+            display: inline-block;
             text-align: left;
         }
 
-        .portfolio-item.right .portfolio-text {
-            margin-right: auto;
-            text-align: right;
+        /* Contact button on the right */
+        .services .contact-button {
+            position: absolute;
+            right: 2rem;
+            top: 0.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #007bff;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
         }
+
+        .services .contact-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Other styles remain unchanged... */
     </style>
 </head>
 <body>
     <!-- Services Section -->
     <div class="services">
-        <a href="web-design.html" class="service-button">Web Design</a>
-        <a href="e-commerce.html" class="service-button">E-Commerce</a>
-        <a href="branding.html" class="service-button">Branding</a>
+        <div class="service-group">
+            <a href="web-design.html" class="service-button">Web Design</a>
+            <a href="e-commerce.html" class="service-button">E-Commerce</a>
+            <a href="branding.html" class="service-button">Branding</a>
+        </div>
+        <a href="contact.html" class="contact-button">Contact</a>
     </div>
 
     <!-- Header Section -->
@@ -234,3 +148,4 @@
     </div>
 </body>
 </html>
+
