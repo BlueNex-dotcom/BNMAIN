@@ -66,6 +66,25 @@ header p {
     color: #c9d1d9;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
+    display: flex;
+    justify-content: space-between; /* To align items on left and right */
+    align-items: center; /* Vertically center buttons */
+}
+
+/* Adjusted Contact Button */
+.services .contact-button {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.services .contact-button:hover {
+    background-color: #0056b3;
 }
 
 .services-container {
