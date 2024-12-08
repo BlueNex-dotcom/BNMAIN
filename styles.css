@@ -79,46 +79,39 @@ header p {
 /* Portfolio Section */
 .portfolio-item {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    width: 80%; /* Scales down container size */
-    max-width: 1080px; /* Limits maximum size */
+    width: 80%; /* Scale the container down */
+    max-width: 1080px; /* Ensure it doesn't exceed this size */
     aspect-ratio: 16 / 9; /* Maintain 1920x1080 aspect ratio */
+    margin: 2rem auto; /* Center the container and add spacing */
     overflow: hidden;
-    margin-left: auto;
-    margin-right: auto; /* Center the container */
-    background: #222437; /* Adds a background color */
+    background-color: #222437; /* Background color for placeholder effect */
     border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crops image to fit container proportionally */
-    border-radius: 15px; /* Matches container's rounded corners */
+    object-fit: contain; /* Ensures the entire image fits within the container */
+    border-radius: 15px; /* Match the container's rounded corners */
 }
 
+/* Centering Text Content */
 .portfolio-text {
     position: relative;
     z-index: 2;
-    max-width: 40%;
-    padding: 2rem;
-    box-sizing: border-box;
+    max-width: 90%; /* Adjust text width within the container */
+    padding: 1.5rem;
+    background: rgba(34, 36, 55, 0.9); /* Transparent background for better readability */
+    color: #c9d1d9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Add some margin and spacing for text */
 .portfolio-text p {
-    position: relative;
-    z-index: 3;
-    font-size: 1.6rem;
-    line-height: 1.4;
-    background: #222437;
-    color: #c9d1d9;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1.4rem;
+    line-height: 1.6;
 }
 
 /* Background Streak Animation */
