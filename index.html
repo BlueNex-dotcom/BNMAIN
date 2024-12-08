@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: 'Lato', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #ffffff; /* Light background */
+            color: #000000; /* Black text for contrast */
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -24,9 +24,9 @@
             position: relative;
             text-align: center;
             padding: 4rem 1rem;
-            background: #0d1117;
-            color: #c9d1d9;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            background: #ffffff; /* Match body background */
+            color: #000000; /* Black text */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         header h1 {
@@ -38,7 +38,7 @@
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #868e96;
+            color: #555555; /* Slightly lighter gray for secondary text */
         }
 
         /* Services Section (Overlay) */
@@ -47,19 +47,20 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #222437;
+            background-color: #f8f9fa; /* Soft gray background */
             padding: 0.5rem 1rem;
             text-align: center;
             z-index: 1000;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .services .service-button {
             text-decoration: none;
             font-size: 1rem;
-            color: white;
-            background-color: black;
+            color: #000000; /* Black text */
+            background-color: #ffffff; /* White background */
             padding: 0.5rem 1rem;
+            border: 2px solid #000000; /* Black border for contrast */
             border-radius: 25px;
             margin: 0 0.5rem;
             display: inline-block;
@@ -67,17 +68,17 @@
         }
 
         .services .service-button:hover {
-            background-color: #333333;
+            background-color: #f0f0f0; /* Subtle hover effect */
         }
 
         /* Quote Section */
         .quote-section {
-            background-color: #222437;
+            background-color: #f8f9fa; /* Soft gray */
             padding: 2rem 1rem;
             text-align: center;
-            color: #c9d1d9;
+            color: #000000;
             margin: 2rem 0;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .quote-section p {
@@ -89,7 +90,7 @@
 
         .quote-section span {
             font-size: 1.2rem;
-            color: #56b6c2;
+            color: #007bff; /* Blue for emphasis */
             font-weight: bold;
         }
 
@@ -99,44 +100,45 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            height: 70vh; /* Reduced height for a smaller appearance */
+            height: 70vh;
             overflow: hidden;
         }
 
         .portfolio-item img {
             position: absolute;
             top: 0;
-            height: 90%; /* Reduced image height */
-            width: 60%; /* Reduced width */
+            height: 90%;
+            width: 60%;
             object-fit: cover;
-            border-radius: 15px; /* Subtle rounded corners */
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Light shadow for images */
         }
 
         .portfolio-item.left img {
-            left: 10%; /* Adjusted to fit reduced size */
+            left: 10%;
         }
 
         .portfolio-item.right img {
-            right: 10%; /* Adjusted to fit reduced size */
+            right: 10%;
         }
 
         .portfolio-text {
             position: relative;
             z-index: 2;
-            max-width: 30%; /* Slightly smaller text block */
+            max-width: 30%;
             padding: 1.5rem;
         }
 
         .portfolio-text p {
             position: relative;
             z-index: 3;
-            font-size: 1.4rem; /* Slightly smaller font */
+            font-size: 1.4rem;
             line-height: 1.4;
-            background: #222437;
-            color: #c9d1d9;
+            background: #f8f9fa; /* Light background for thought bubbles */
+            color: #000000;
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Thought Bubble Tail */
@@ -147,7 +149,7 @@
             left: -20px;
             border-width: 10px 20px 10px 0;
             border-style: solid;
-            border-color: transparent #222437 transparent transparent;
+            border-color: transparent #f8f9fa transparent transparent;
             transform: translateY(-50%);
         }
 
@@ -158,7 +160,7 @@
             right: -20px;
             border-width: 10px 0 10px 20px;
             border-style: solid;
-            border-color: transparent transparent transparent #222437;
+            border-color: transparent transparent transparent #f8f9fa;
             transform: translateY(-50%);
         }
 
@@ -216,5 +218,6 @@
     </div>
 </body>
 </html>
+
 
 
