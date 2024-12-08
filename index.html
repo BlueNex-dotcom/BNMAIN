@@ -51,9 +51,10 @@
             left: 0;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 2rem;
             z-index: 1000;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
 
         .services .service-button {
@@ -73,13 +74,7 @@
             background-color: #f0f0f0;
         }
 
-        /* Positioning service buttons to the left */
-        .services .service-group {
-            display: inline-block;
-            text-align: left;
-        }
-
-        /* Contact button on the right */
+        /* Contact button positioned to the right */
         .services .contact-button {
             position: absolute;
             right: 2rem;
@@ -99,58 +94,126 @@
             background-color: #0056b3;
         }
 
+        /* Quote Section */
+        .quote-section {
+            background-color: rgba(248, 249, 250, 0.9);
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #000000;
+            margin: 2rem 0;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-section span {
+            font-size: 1.2rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+
         /* Portfolio Section */
         .portfolio-item {
             position: relative;
-            width: 45%;
-            margin: 2rem 2.5%;
-            display: inline-block;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 70vh;
+            overflow: hidden;
             transition: transform 0.3s ease-in-out;
         }
 
         .portfolio-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            height: 90%;
+            width: 60%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item.left img {
+            left: 10%;
+        }
+
+        .portfolio-item.right img {
+            right: 10%;
+        }
+
+        /* Floating Effect on Hover */
+        .portfolio-item img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
         }
 
         .portfolio-text {
+            position: relative;
+            z-index: 2;
+            max-width: 30%;
+            padding: 1.5rem;
+        }
+
+        .portfolio-text p {
+            position: relative;
+            z-index: 3;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            background: rgba(248, 249, 250, 0.9);
+            color: #000000;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Thought Bubble Tail */
+        .portfolio-item.left .portfolio-text p::after {
+            content: '';
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 1rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            width: 80%;
+            top: 50%;
+            left: -20px;
+            border-width: 10px 20px 10px 0;
+            border-style: solid;
+            border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
+            transform: translateY(-50%);
         }
 
-        /* Quote Section */
-        .quote-section {
-            text-align: center;
-            margin: 3rem 0;
-            font-style: italic;
-            color: #777777;
+        .portfolio-item.right .portfolio-text p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            border-width: 10px 0 10px 20px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
+            transform: translateY(-50%);
         }
 
-        /* Floating Effect on Images */
-        .portfolio-item:hover {
-            transform: translateY(-10px);
+        .portfolio-item.left .portfolio-text {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .portfolio-item.right .portfolio-text {
+            margin-right: auto;
+            text-align: right;
         }
     </style>
 </head>
 <body>
-    <!-- Services Section (Overlay) -->
+    <!-- Services Section -->
     <div class="services">
-        <div class="service-group">
-            <a href="web-design.html" class="service-button">Web Design</a>
-            <a href="e-commerce.html" class="service-button">E-Commerce</a>
-            <a href="branding.html" class="service-button">Branding</a>
-        </div>
-        <a href="contact.html" class="contact-button">Contact</a> <!-- Contact button added -->
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
+        <!-- Contact Button added to the right -->
+        <a href="contact.html" class="contact-button">Contact</a>
     </div>
 
     <!-- Header Section -->
@@ -188,3 +251,4 @@
     </div>
 </body>
 </html>
+
