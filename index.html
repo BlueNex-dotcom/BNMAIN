@@ -30,6 +30,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease;
+            z-index: 2; /* Ensure it's above the services section */
         }
 
         header.show {
@@ -115,13 +116,13 @@
         /* Smaller Services Section */
         .services {
             background-color: #222437;
-            padding: 2rem 1rem;
+            padding: 1rem 1rem; /* Reduced padding for smaller size */
             text-align: center;
             color: #c9d1d9;
             position: fixed;
-            top: 0;
+            top: 5rem; /* Adjusted to be below the header */
             width: 100%;
-            z-index: 10;
+            z-index: 1; /* Ensure it's below the header */
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateY(-50px);
@@ -134,9 +135,9 @@
         }
 
         .services h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Smaller font size */
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .services .service-button {
@@ -144,9 +145,9 @@
             font-size: 1rem;
             color: white;
             background-color: black;
-            padding: 0.8rem 1.6rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
-            margin: 0.5rem;
+            margin: 0.3rem;
             display: inline-block;
             transition: background-color 0.3s ease-in-out;
         }
