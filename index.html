@@ -27,6 +27,11 @@
             background: #0d1117;
             color: #c9d1d9;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60vh; /* Ensure enough space for centering */
         }
 
         header h1 {
@@ -68,6 +73,29 @@
 
         .services .service-button:hover {
             background-color: #333333;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: #222437;
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #c9d1d9;
+            margin-bottom: 2rem;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quote-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-section span {
+            font-size: 1.2rem;
+            color: #56b6c2;
+            font-weight: bold;
         }
 
         /* Portfolio Section */
@@ -130,6 +158,12 @@
         <p>Your Gateway to Stunning Web Design</p>
     </header>
 
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
+        <span>- BlueNex Team</span>
+    </div>
+
     <!-- Portfolio Section -->
     <div class="portfolio-item left" id="portfolio">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
@@ -153,4 +187,3 @@
     </div>
 </body>
 </html>
-
