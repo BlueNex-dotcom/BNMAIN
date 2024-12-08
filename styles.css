@@ -57,23 +57,51 @@ header p {
     color: #0d1117;
 }
 
-/* Service Details Section */
-.service-details {
-    background-color: #222437;
-    padding: 4rem 2rem;
-    text-align: center;
+/* Services Section */
+.services {
+    position: sticky; /* Keeps the section fixed as the user scrolls */
+    top: 0; /* Position at the top of the screen */
+    z-index: 999; /* Ensure it stays above other elements */
+    background-color: #0d1117; /* Match the site's background */
     color: #c9d1d9;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
 }
 
-.service-details h2 {
-    font-size: 2.5rem;
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services li {
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #56b6c2;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    color: #56b6c2;
 }
 
-.service-details p {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+.services li:hover {
+    background-color: #56b6c2;
+    color: #0d1117;
 }
 
 /* Portfolio Section */
