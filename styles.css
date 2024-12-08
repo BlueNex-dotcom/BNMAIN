@@ -82,25 +82,23 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
     margin-bottom: 2rem;
+    width: 80%; /* Scales down container size */
+    max-width: 1080px; /* Limits maximum size */
+    aspect-ratio: 16 / 9; /* Maintain 1920x1080 aspect ratio */
     overflow: hidden;
-}
-
-.portfolio-item img {
-    width: 80%; /* Slightly smaller size */
-    aspect-ratio: 16 / 9; /* Ensures 1920x1080 aspect ratio */
-    object-fit: cover; /* Maintain proportional cropping */
-    border-radius: 10px; /* Optional: rounded corners */
+    margin-left: auto;
+    margin-right: auto; /* Center the container */
+    background: #222437; /* Adds a background color */
+    border-radius: 15px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
-.portfolio-item.left img {
-    align-self: flex-start;
-}
-
-.portfolio-item.right img {
-    align-self: flex-end;
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image to fit container proportionally */
+    border-radius: 15px; /* Matches container's rounded corners */
 }
 
 .portfolio-text {
@@ -169,14 +167,10 @@ header p {
     }
 
     .portfolio-item {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .portfolio-item img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
+        width: 100%; /* Full width on smaller screens */
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .portfolio-text {
@@ -219,6 +213,10 @@ header p {
 
     .portfolio-item {
         margin-bottom: 1rem;
+    }
+
+    .portfolio-item img {
+        border-radius: 10px;
     }
 
     .portfolio-text p {
@@ -266,4 +264,3 @@ header p {
         font-size: 1rem;
     }
 }
-
