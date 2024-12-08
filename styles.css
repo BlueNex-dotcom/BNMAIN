@@ -81,29 +81,26 @@ header p {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     height: auto;
-    max-height: 80vh;
-    overflow: hidden;
-    flex-wrap: wrap;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 .portfolio-item img {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 70%;
-    object-fit: cover;
-    max-width: 100%;
+    width: 80%; /* Slightly smaller size */
+    aspect-ratio: 16 / 9; /* Ensures 1920x1080 aspect ratio */
+    object-fit: cover; /* Maintain proportional cropping */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 .portfolio-item.left img {
-    left: 0;
+    align-self: flex-start;
 }
 
 .portfolio-item.right img {
-    right: 0;
+    align-self: flex-end;
 }
 
 .portfolio-text {
@@ -175,13 +172,11 @@ header p {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: auto;
-        max-height: none;
     }
 
     .portfolio-item img {
         width: 100%;
-        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     .portfolio-text {
@@ -271,3 +266,4 @@ header p {
         font-size: 1rem;
     }
 }
+
