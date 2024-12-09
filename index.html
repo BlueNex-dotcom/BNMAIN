@@ -299,6 +299,62 @@
         .business-info ul li a:hover {
             color: #0056b3;
         }
+
+        /* Responsive Design - Mobile & Tablet */
+        @media screen and (max-width: 768px) {
+            /* Adjusting layout for tablet and mobile devices */
+            header {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .services {
+                padding: 0.5rem 1rem;
+            }
+
+            .services .service-button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .services .contact-button {
+                font-size: 1rem;
+                padding: 0.5rem 1.5rem;
+            }
+
+            .portfolio-item {
+                flex-direction: column; /* Stack portfolio items vertically */
+                height: auto;
+            }
+
+            .portfolio-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .portfolio-text {
+                max-width: 100%;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .quote-section {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .business-info {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -312,13 +368,13 @@
     </div>
 
     <!-- Services Section -->
-<div class="services">
-    <a href="index.html" class="service-button">Home</a>
-    <a href="web-design.html" class="service-button">Web Design</a>
-    <a href="e-commerce.html" class="service-button">E-Commerce</a>
-    <a href="branding.html" class="service-button">Branding</a>
-    <a href="contact.html" class="contact-button">Contact</a>
-</div>
+    <div class="services">
+        <a href="index.html" class="service-button">Home</a>
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
+        <a href="contact.html" class="contact-button">Contact</a>
+    </div>
 
     <!-- Header Section -->
     <header>
@@ -350,20 +406,20 @@
     <div class="portfolio-item left">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
         <div class="portfolio-text">
-            <p>"Best website we've had so far!" - Client 3</p>
+            <p>"A seamless experience from start to finish!" - Client 3</p>
         </div>
     </div>
 
     <!-- Business Info Section -->
     <div class="business-info">
-        <h2>Contact Information</h2>
+        <h2>Business Information</h2>
         <ul>
-            <li>Email: <a href="mailto:contact@bluenex.co.uk">contact@bluenex.co.uk</a></li>
-            <li>Phone: <a href="tel:+44 07939466015">+44 07939 466015</a></li>
-            <li>Instagram: <a href="https://instagram.com/bluenexdigital" target="_blank">@BluenexDigital</a></li>
+            <li>Phone: (123) 456-7890</li>
+            <li>Email: contact@bluenex.com</li>
+            <li><a href="https://www.linkedin.com/company/bluenex" target="_blank">LinkedIn</a></li>
         </ul>
     </div>
-
 </body>
 
 </html>
+
