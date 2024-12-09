@@ -317,19 +317,22 @@
 
         .dropdown-menu {
             display: none;
-            background-color: rgba(13, 17, 23, 0.9);
-            position: absolute;
-            top: 50px;
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
             text-align: center;
+            z-index: 1002;
         }
 
         .dropdown-menu a {
             display: block;
-            padding: 1rem;
+            padding: 1.5rem;
             color: #ffffff;
             text-decoration: none;
+            font-size: 1.5rem;
             border-top: 1px solid #fff;
         }
 
@@ -340,12 +343,16 @@
         /* Mobile Media Queries */
         @media screen and (max-width: 768px) {
             .services {
-                display: none;
+                display: block; /* Keep the services visible on desktop */
             }
 
             /* Show hamburger menu only on mobile */
             .hamburger-menu {
                 display: block;
+            }
+
+            .services {
+                display: none;
             }
         }
     </style>
@@ -377,6 +384,15 @@
         <h1>BlueNex</h1>
         <p>Your Gateway to Stunning Web Design</p>
     </header>
+
+    <!-- Services Section (Visible on Desktop) -->
+    <div class="services">
+        <a href="index.html" class="service-button">Home</a>
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
+        <a href="contact.html" class="contact-button">Contact</a>
+    </div>
 
     <!-- Quote Section -->
     <div class="quote-section">
@@ -426,3 +442,4 @@
 </body>
 
 </html>
+
