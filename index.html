@@ -263,7 +263,6 @@
             text-align: right;
         }
 
-        /* Business Info Section */
         .business-info {
             background-color: rgba(13, 17, 23, 0.8);
             padding: 2rem 1rem;
@@ -300,59 +299,53 @@
             color: #0056b3;
         }
 
-        /* Responsive Design - Mobile & Tablet */
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ffffff;
+            z-index: 1001;
+        }
+
+        .hamburger-menu:hover {
+            color: #007bff;
+        }
+
+        .dropdown-menu {
+            display: none;
+            background-color: rgba(13, 17, 23, 0.9);
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            border-top: 1px solid #fff;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile Media Queries */
         @media screen and (max-width: 768px) {
-            /* Adjusting layout for tablet and mobile devices */
-            header {
-                padding: 2rem 1rem;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
             .services {
-                padding: 0.5rem 1rem;
+                display: none;
             }
 
-            .services .service-button {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .services .contact-button {
-                font-size: 1rem;
-                padding: 0.5rem 1.5rem;
-            }
-
-            .portfolio-item {
-                flex-direction: column; /* Stack portfolio items vertically */
-                height: auto;
-            }
-
-            .portfolio-item img {
-                width: 100%;
-                height: auto;
-            }
-
-            .portfolio-text {
-                max-width: 100%;
-                padding: 1rem;
-                text-align: center;
-            }
-
-            .quote-section {
-                padding: 1.5rem;
-                font-size: 1rem;
-            }
-
-            .business-info {
-                padding: 1.5rem;
-                font-size: 1rem;
+            /* Show hamburger menu only on mobile */
+            .hamburger-menu {
+                display: block;
             }
         }
     </style>
@@ -367,8 +360,11 @@
         <div class="streak"></div>
     </div>
 
-    <!-- Services Section -->
-    <div class="services">
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" id="dropdownMenu">
         <a href="index.html" class="service-button">Home</a>
         <a href="web-design.html" class="service-button">Web Design</a>
         <a href="e-commerce.html" class="service-button">E-Commerce</a>
@@ -419,7 +415,14 @@
             <li><a href="https://www.linkedin.com/company/bluenex" target="_blank">LinkedIn</a></li>
         </ul>
     </div>
+
+    <script>
+        // JavaScript to toggle the dropdown menu
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 
 </html>
-
