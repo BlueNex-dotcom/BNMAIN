@@ -164,21 +164,6 @@ header p {
     background-color: #0056b3;
 }
 
-
-
-/* Portfolio Section */
-.portfolio-item {
-    position: relative;
-    width: 80%; /* Scale the container down */
-    max-width: 1080px; /* Ensure it doesn't exceed this size */
-    aspect-ratio: 16 / 9; /* Maintain 1920x1080 aspect ratio */
-    margin: 2rem auto; /* Center the container and add spacing */
-    overflow: hidden;
-    background-color: #222437; /* Background color for placeholder effect */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
-}
-
 .portfolio-item img {
     width: 100%;
     height: 100%;
