@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueNex</title>
     <style>
+
+        /* Portfolio Animation */
+.portfolio-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-in-out;
+}
+
+.portfolio-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        
         body {
             margin: 0;
             font-family: 'Lato', sans-serif;
@@ -367,18 +381,6 @@
                 display: none;
             }
            
-            /* Portfolio Animation */
-.portfolio-item {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-in-out;
-}
-
-.portfolio-item.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
         }
     </style>
 </head>
