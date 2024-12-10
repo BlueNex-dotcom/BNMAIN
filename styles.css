@@ -78,6 +78,13 @@ header p {
     color: #0d1117;
 }
 
+/* Add this to your existing CSS file */
+.portfolio-item img:hover {
+    transform: scale(1.1); /* Increases the size by 10% */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+
 /* Services Section */
 .services {
     position: sticky; /* Keeps the section fixed as the user scrolls */
