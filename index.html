@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,14 @@
       scroll-behavior: smooth;
       position: relative;
     }
-    h1, h2, p {
+
+    h1,
+    h2,
+    p {
       margin: 0;
       padding: 0;
     }
+
     /* Streaks background */
     .streaks {
       position: absolute;
@@ -26,8 +31,9 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: -1; /* Keep it behind content */
+      z-index: -1;
     }
+
     .streak {
       position: absolute;
       width: 2px;
@@ -36,24 +42,47 @@
       opacity: 0.6;
       animation: streak-animation 2s linear infinite;
     }
+
     @keyframes streak-animation {
       0% {
         transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
         opacity: 0;
       }
+
       30% {
         opacity: 0.8;
       }
+
       100% {
         transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
         opacity: 0;
       }
     }
-    .streak:nth-child(1) { --x-pos: 0.1; }
-    .streak:nth-child(2) { --x-pos: 0.3; animation-delay: 0.5s; }
-    .streak:nth-child(3) { --x-pos: 0.5; animation-delay: 1s; }
-    .streak:nth-child(4) { --x-pos: 0.7; animation-delay: 1.5s; }
-    .streak:nth-child(5) { --x-pos: 0.9; animation-delay: 2s; }
+
+    .streak:nth-child(1) {
+      --x-pos: 0.1;
+    }
+
+    .streak:nth-child(2) {
+      --x-pos: 0.3;
+      animation-delay: 0.5s;
+    }
+
+    .streak:nth-child(3) {
+      --x-pos: 0.5;
+      animation-delay: 1s;
+    }
+
+    .streak:nth-child(4) {
+      --x-pos: 0.7;
+      animation-delay: 1.5s;
+    }
+
+    .streak:nth-child(5) {
+      --x-pos: 0.9;
+      animation-delay: 2s;
+    }
+
     /* Header Section */
     header {
       position: relative;
@@ -62,16 +91,19 @@
       background: rgba(13, 17, 23, 0.9);
       color: #c9d1d9;
     }
+
     header h1 {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
+
     header p {
       font-size: 1.2rem;
       font-weight: 300;
       color: #868e96;
     }
+
     /* Services Section */
     .services {
       position: fixed;
@@ -84,6 +116,7 @@
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
       text-align: left;
     }
+
     .services .service-button {
       text-decoration: none;
       font-size: 1rem;
@@ -96,9 +129,11 @@
       display: inline-block;
       transition: background-color 0.3s ease-in-out;
     }
+
     .services .service-button:hover {
       background-color: #f0f0f0;
     }
+
     /* Contact button positioned to the right */
     .services .contact-button {
       position: absolute;
@@ -114,9 +149,11 @@
       display: inline-block;
       transition: background-color 0.3s ease-in-out;
     }
+
     .services .contact-button:hover {
       background-color: #0056b3;
     }
+
     /* Best Website Designers Section */
     .best-designers-section {
       text-align: center;
@@ -124,10 +161,15 @@
       font-size: 1.8rem;
       font-weight: bold;
       color: #c9d1d9;
+      /* Matches the text color */
       background-color: rgba(13, 17, 23, 0.8);
+      /* Blends with your theme */
       margin: 1.5rem 0;
+      /* Adds spacing between sections */
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow for depth */
     }
+
     /* Quote Section */
     .quote-section {
       background-color: rgba(13, 17, 23, 0.6);
@@ -137,17 +179,20 @@
       margin: 2rem 0;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     }
+
     .quote-section p {
       font-size: 1.5rem;
       font-weight: 300;
       margin-bottom: 1rem;
       line-height: 1.5;
     }
+
     .quote-section span {
       font-size: 1.2rem;
       color: #007bff;
       font-weight: bold;
     }
+
     /* Portfolio Section */
     .portfolio-item {
       position: relative;
@@ -158,6 +203,7 @@
       overflow: hidden;
       transition: transform 0.3s ease-in-out;
     }
+
     .portfolio-item img {
       position: absolute;
       top: 0;
@@ -168,19 +214,28 @@
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease-in-out;
     }
-    .portfolio-item.left img { left: 10%; }
-    .portfolio-item.right img { right: 10%; }
+
+    .portfolio-item.left img {
+      left: 10%;
+    }
+
+    .portfolio-item.right img {
+      right: 10%;
+    }
+
     /* Floating Effect on Hover */
     .portfolio-item img:hover {
       transform: translateY(-10px);
       box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
     }
+
     .portfolio-text {
       position: relative;
       z-index: 2;
       max-width: 30%;
       padding: 1.5rem;
     }
+
     .portfolio-text p {
       position: relative;
       z-index: 3;
@@ -192,6 +247,7 @@
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     /* Thought Bubble Tail */
     .portfolio-item.left .portfolio-text p::after {
       content: '';
@@ -203,6 +259,7 @@
       border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
       transform: translateY(-50%);
     }
+
     .portfolio-item.right .portfolio-text p::after {
       content: '';
       position: absolute;
@@ -213,8 +270,17 @@
       border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
       transform: translateY(-50%);
     }
-    .portfolio-item.left .portfolio-text { margin-left: auto; text-align: left; }
-    .portfolio-item.right .portfolio-text { margin-right: auto; text-align: right; }
+
+    .portfolio-item.left .portfolio-text {
+      margin-left: auto;
+      text-align: left;
+    }
+
+    .portfolio-item.right .portfolio-text {
+      margin-right: auto;
+      text-align: right;
+    }
+
     .business-info {
       background-color: rgba(13, 17, 23, 0.8);
       padding: 2rem 1rem;
@@ -223,27 +289,50 @@
       margin-top: 2rem;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     }
-    .business-info h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
+
+    .business-info h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
     .business-info ul {
       list-style-type: none;
       padding: 0;
     }
+
     .business-info ul li {
       font-size: 1.2rem;
       margin: 0.5rem 0;
       color: #868e96;
     }
+
     .business-info ul li a {
       color: #007bff;
       text-decoration: none;
       transition: color 0.3s ease;
     }
+
     .business-info ul li a:hover {
       color: #0056b3;
     }
+
     /* Hamburger Menu */
-    .hamburger-menu { display: none; position: absolute; left: 1rem; top: 1rem; font-size: 2rem; cursor: pointer; color: #ffffff; z-index: 1001; }
-    .hamburger-menu:hover { color: #007bff; }
+    .hamburger-menu {
+      display: none;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ffffff;
+      z-index: 1001;
+    }
+
+    .hamburger-menu:hover {
+      color: #007bff;
+    }
+
     .dropdown-menu {
       display: none;
       position: fixed;
@@ -255,6 +344,7 @@
       text-align: center;
       z-index: 1002;
     }
+
     .dropdown-menu a {
       display: block;
       padding: 1.5rem;
@@ -263,15 +353,63 @@
       font-size: 1.5rem;
       border-top: 1px solid #fff;
     }
-    .dropdown-menu a:hover { background-color: #007bff; }
+
+    .dropdown-menu a:hover {
+      background-color: #007bff;
+    }
+
     /* Mobile Media Queries */
     @media screen and (max-width: 768px) {
-      .services { display: block; /* Keep the services visible on desktop */ }
+      .services {
+        display: block;
+        /* Keep the services visible on desktop */
+      }
+
       /* Show hamburger menu only on mobile */
-      .hamburger-menu { display: block; }
-      .services { display: none; }
+      .hamburger-menu {
+        display: block;
+      }
+
+      .services {
+        display: none;
+      }
     }
-    /* Chatbot Styling */
+
+    /* Slide-in Animation */
+    @keyframes slide-in-left {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slide-in-right {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Add animation to portfolio items */
+    .portfolio-item.left {
+      animation: slide-in-left 1s ease-out;
+    }
+
+    .portfolio-item.right {
+      animation: slide-in-right 1s ease-out;
+    }
+
+    /* Chatbot styling */
     .chatbot {
       position: fixed;
       bottom: 20px;
@@ -282,7 +420,6 @@
       border-radius: 50px;
       cursor: pointer;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 2000; /* Ensures chatbot button is always on top */
     }
 
     .chatbot-window {
@@ -297,7 +434,6 @@
       border-radius: 8px;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
       overflow: hidden;
-      z-index: 2000; /* Ensures chatbot window is always on top */
     }
 
     .chatbot-header {
@@ -340,6 +476,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="streaks">
     <div class="streak"></div>
@@ -354,6 +491,113 @@
 
   <!-- Dropdown Menu -->
   <div class="dropdown-menu" id="dropdownMenu">
-    <a href="index
+    <a href="index.html" class="service-button">Home</a>
+    <a href="web-design.html" class="service-button">Web Design</a>
+    <a href="e-commerce.html" class="service-button">E-Commerce</a>
+    <a href="branding.html" class="service-button">Branding</a>
+    <a href="contact.html" class="contact-button">Contact</a>
+  </div>
 
+  <!-- Header Section -->
+  <header>
+    <h1>BlueNex</h1>
+    <p>Your Gateway to Stunning Web Design</p>
+  </header>
 
+  <!-- New Section: Best Website Designers -->
+  <div class="best-designers-section">
+    <p>The Best Website Designers in Dorset</p>
+  </div>
+
+  <!-- Services Section (Visible on Desktop) -->
+  <div class="services">
+    <a href="index.html" class="service-button">Home</a>
+    <a href="web-design.html" class="service-button">Web Design</a>
+    <a href="e-commerce.html" class="service-button">E-Commerce</a>
+    <a href="branding.html" class="service-button">Branding</a>
+    <a href="contact.html" class="contact-button">Contact</a>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote-section">
+    <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
+    <span>- BlueNex Team</span>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio-item left" id="portfolio">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
+    <div class="portfolio-text">
+      <p>"Amazing design and user experience!" - Client 1</p>
+    </div>
+  </div>
+
+  <div class="portfolio-item right">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
+    <div class="portfolio-text">
+      <p>"Highly professional and creative work!" - Client 2</p>
+    </div>
+  </div>
+
+  <div class="portfolio-item left">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
+    <div class="portfolio-text">
+      <p>"A seamless experience from start to finish!" - Client 3</p>
+    </div>
+  </div>
+
+  <!-- Business Info Section -->
+  <div class="business-info">
+    <h2>Contact Us</h2>
+    <ul>
+      <li><strong>Address:</strong> 123 Web Design Lane, Dorset, UK</li>
+      <li><strong>Email:</strong> info@bluenex.com</li>
+      <li><strong>Phone:</strong> 01234 567890</li>
+    </ul>
+  </div>
+
+  <!-- Chatbot -->
+  <div class="chatbot" onclick="toggleChatbot()">Chat with us!</div>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">Chatbot</div>
+    <div class="chatbot-messages" id="chatMessages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleChatbot() {
+      const chatbotWindow = document.getElementById('chatbotWindow');
+      chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const messages = document.getElementById('chatMessages');
+      const userMessage = input.value;
+      if (userMessage.trim() !== '') {
+        const newMessage = document.createElement('div');
+        newMessage.textContent = userMessage;
+        messages.appendChild(newMessage);
+        input.value = '';
+
+        // Simulating a chatbot reply
+        setTimeout(() => {
+          const botMessage = document.createElement('div');
+          botMessage.textContent = 'Thank you for reaching out! How can we assist you?';
+          messages.appendChild(botMessage);
+          messages.scrollTop = messages.scrollHeight;
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+
+</html>
