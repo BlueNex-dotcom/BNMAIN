@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueNex</title>
     <style>
-    
         body {
             margin: 0;
             font-family: 'Lato', sans-serif;
@@ -196,49 +195,7 @@
             justify-content: flex-start;
             height: 70vh;
             overflow: hidden;
-            opacity: 0;
-            animation: slideIn 1s forwards;
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .portfolio-item.left {
-            animation-name: slideInLeft;
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .portfolio-item.right {
-            animation-name: slideInRight;
-        }
-
-        @keyframes slideInRight {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            transition: transform 0.3s ease-in-out;
         }
 
         .portfolio-item img {
@@ -499,7 +456,6 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-
 </body>
 
 </html>
