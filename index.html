@@ -29,7 +29,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1; /* Keep it behind content */
+            z-index: -1;
         }
 
         .streak {
@@ -158,10 +158,10 @@
             padding: 2rem 1rem;
             font-size: 1.8rem;
             font-weight: bold;
-            color: #c9d1d9; /* Matches the text color */
-            background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
-            margin: 1.5rem 0; /* Adds spacing between sections */
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            color: #c9d1d9;
+            background-color: rgba(13, 17, 23, 0.8);
+            margin: 1.5rem 0;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         /* Chatbot Styling */
@@ -169,12 +169,13 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 9999; /* Ensure chatbot is above all other elements */
             background-color: #fff;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
             width: 300px;
             overflow: hidden;
+            max-height: 400px;
         }
 
         .chatbot-header {
@@ -187,7 +188,7 @@
 
         .chatbot-body {
             padding: 10px;
-            max-height: 300px;
+            max-height: 250px;
             overflow-y: auto;
             font-size: 0.9rem;
         }
@@ -280,5 +281,6 @@
 </body>
 
 </html>
+
 
 
