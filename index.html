@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             color: #c9d1d9;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
         }
 
         h1, h2, p {
@@ -19,43 +21,6 @@
             padding: 0;
         }
 
-     <style>
-    /* Existing styles remain unchanged */
-
-    /* Slide-in Animation */
-    @keyframes slide-in-left {
-        0% {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slide-in-right {
-        0% {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    /* Add animation to portfolio items */
-    .portfolio-item.left {
-        animation: slide-in-left 1s ease-out;
-    }
-
-    .portfolio-item.right {
-        animation: slide-in-right 1s ease-out;
-    }
-</style>
-
-        
         /* Streaks background */
         .streaks {
             position: absolute;
@@ -137,6 +102,91 @@
             color: #868e96;
         }
 
+        /* Services Section */
+        .services {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 17, 23, 0.9);
+            padding: 0.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .services .service-button {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #000000;
+            background-color: #ffffff;
+            padding: 0.5rem 1rem;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            margin: 0.5rem;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .services .service-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Contact button positioned to the right */
+        .services .contact-button {
+            position: absolute;
+            right: 6rem;
+            top: 1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #007bff;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .services .contact-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Best Website Designers Section */
+        .best-designers-section {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c9d1d9; /* Matches the text color */
+            background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
+            margin: 1.5rem 0; /* Adds spacing between sections */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: rgba(13, 17, 23, 0.6);
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #ffffff;
+            margin: 2rem 0;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-section span {
+            font-size: 1.2rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+
         /* Portfolio Section */
         .portfolio-item {
             position: relative;
@@ -144,22 +194,8 @@
             align-items: center;
             justify-content: flex-start;
             height: 70vh;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-
-        .portfolio-item.left {
-            transform: translateX(-100vw); /* Start off-screen to the left */
-        }
-
-        .portfolio-item.right {
-            transform: translateX(100vw); /* Start off-screen to the right */
-        }
-
-        .portfolio-item.visible {
-            opacity: 1;
-            transform: translateX(0); /* Slide to normal position */
-            transition: transform 1s ease, opacity 1s ease; /* Smooth slide-in */
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
         }
 
         .portfolio-item img {
@@ -274,8 +310,100 @@
         .business-info ul li a:hover {
             color: #0056b3;
         }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ffffff;
+            z-index: 1001;
+        }
+
+        .hamburger-menu:hover {
+            color: #007bff;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 1002;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 1.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border-top: 1px solid #fff;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile Media Queries */
+        @media screen and (max-width: 768px) {
+            .services {
+                display: block; /* Keep the services visible on desktop */
+            }
+
+            /* Show hamburger menu only on mobile */
+            .hamburger-menu {
+                display: block;
+            }
+
+            .services {
+                display: none;
+            }
+        }
     </style>
+
+     /* Slide-in Animation */
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-right {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Add animation to portfolio items */
+        .portfolio-item.left {
+            animation: slide-in-left 1s ease-out;
+        }
+
+        .portfolio-item.right {
+            animation: slide-in-right 1s ease-out;
+        }
+    </style>
+    
 </head>
+
 <body>
     <div class="streaks">
         <div class="streak"></div>
@@ -283,6 +411,18 @@
         <div class="streak"></div>
         <div class="streak"></div>
         <div class="streak"></div>
+    </div>
+
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html" class="service-button">Home</a>
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
+        <a href="contact.html" class="contact-button">Contact</a>
     </div>
 
     <!-- Header Section -->
@@ -296,22 +436,37 @@
         <p>The Best Website Designers in Dorset</p>
     </div>
 
+    <!-- Services Section (Visible on Desktop) -->
+    <div class="services">
+        <a href="index.html" class="service-button">Home</a>
+        <a href="web-design.html" class="service-button">Web Design</a>
+        <a href="e-commerce.html" class="service-button">E-Commerce</a>
+        <a href="branding.html" class="service-button">Branding</a>
+        <a href="contact.html" class="contact-button">Contact</a>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
+        <span>- BlueNex Team</span>
+    </div>
+
     <!-- Portfolio Section -->
-    <div class="portfolio-item left" id="portfolio1">
+    <div class="portfolio-item left" id="portfolio">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
         <div class="portfolio-text">
             <p>"Amazing design and user experience!" - Client 1</p>
         </div>
     </div>
 
-    <div class="portfolio-item right" id="portfolio2">
+    <div class="portfolio-item right">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
         <div class="portfolio-text">
             <p>"Highly professional and creative work!" - Client 2</p>
         </div>
     </div>
 
-    <div class="portfolio-item left" id="portfolio3">
+    <div class="portfolio-item left">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
         <div class="portfolio-text">
             <p>"A seamless experience from start to finish!" - Client 3</p>
@@ -329,22 +484,16 @@
     </div>
 
     <script>
-        // Intersection Observer for Scroll Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observing the portfolio items
-        observer.observe(document.getElementById('portfolio1'));
-        observer.observe(document.getElementById('portfolio2'));
-        observer.observe(document.getElementById('portfolio3'));
+        // JavaScript to toggle the dropdown menu
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
     </script>
 </body>
+
 </html>
+
 
 
 
