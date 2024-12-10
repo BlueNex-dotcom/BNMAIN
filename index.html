@@ -651,6 +651,40 @@
         }, 1000);
       }
     }
+
+    function toggleChatbot() {
+  const chatbotWindow = document.getElementById('chatbotWindow');
+  chatbotWindow.style.display =
+    chatbotWindow.style.display === 'block' ? 'none' : 'block';
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (message) {
+    const messagesContainer = document.querySelector('.chatbot-messages');
+    
+    // Add user message
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chatbot-bubble user';
+    userBubble.textContent = message;
+    messagesContainer.appendChild(userBubble);
+
+    // Simulate bot response
+    const botBubble = document.createElement('div');
+    botBubble.className = 'chatbot-bubble bot';
+    botBubble.textContent = 'Thank you for your message!';
+    messagesContainer.appendChild(botBubble);
+
+    // Scroll to the bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Clear input
+    input.value = '';
+  }
+}
+
+  
   </script>
 </body>
 
