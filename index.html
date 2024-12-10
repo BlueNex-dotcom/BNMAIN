@@ -81,82 +81,355 @@
             animation-delay: 2s;
         }
 
-        /* Chatbot Styles */
-        #chatbot-icon {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #007bff;
-            color: white;
-            font-size: 2rem;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        #chat-window {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 300px;
-            height: 400px;
-            background-color: #1c1e22;
+        /* Header Section */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 4rem 1rem;
+            background: rgba(13, 17, 23, 0.9);
             color: #c9d1d9;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            z-index: 999;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
         }
 
-        #chat-window header {
-            font-size: 1.2rem;
+        header h1 {
+            font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 0.5rem;
         }
 
-        #chat-messages {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-bottom: 10px;
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #868e96;
         }
 
-        #chat-input {
-            background-color: #2c2f36;
-            border: none;
-            color: #c9d1d9;
-            padding: 10px;
+        /* Services Section */
+        .services {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            border-radius: 5px;
-            margin-top: 10px;
+            background-color: rgba(13, 17, 23, 0.9);
+            padding: 0.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
 
-        #chat-input:focus {
-            outline: none;
+        .services .service-button {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #000000;
+            background-color: #ffffff;
+            padding: 0.5rem 1rem;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            margin: 0.5rem;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        #send-message {
+        .services .service-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Contact button positioned to the right */
+        .services .contact-button {
+            position: absolute;
+            right: 6rem;
+            top: 1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            color: #ffffff;
             background-color: #007bff;
-            color: white;
+            padding: 0.5rem 1.5rem;
             border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        #send-message:hover {
+        .services .contact-button:hover {
             background-color: #0056b3;
         }
 
-        /* Existing Styles */
-        /* (No changes in other existing styles) */
+        /* Best Website Designers Section */
+        .best-designers-section {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c9d1d9; /* Matches the text color */
+            background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
+            margin: 1.5rem 0; /* Adds spacing between sections */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: rgba(13, 17, 23, 0.6);
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #ffffff;
+            margin: 2rem 0;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-section span {
+            font-size: 1.2rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Portfolio Section */
+        .portfolio-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 70vh;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item img {
+            position: absolute;
+            top: 0;
+            height: 90%;
+            width: 60%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item.left img {
+            left: 10%;
+        }
+
+        .portfolio-item.right img {
+            right: 10%;
+        }
+
+        /* Floating Effect on Hover */
+        .portfolio-item img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-text {
+            position: relative;
+            z-index: 2;
+            max-width: 30%;
+            padding: 1.5rem;
+        }
+
+        .portfolio-text p {
+            position: relative;
+            z-index: 3;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            background: rgba(248, 249, 250, 0.9);
+            color: #000000;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Thought Bubble Tail */
+        .portfolio-item.left .portfolio-text p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            border-width: 10px 20px 10px 0;
+            border-style: solid;
+            border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
+            transform: translateY(-50%);
+        }
+
+        .portfolio-item.right .portfolio-text p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            border-width: 10px 0 10px 20px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
+            transform: translateY(-50%);
+        }
+
+        .portfolio-item.left .portfolio-text {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .portfolio-item.right .portfolio-text {
+            margin-right: auto;
+            text-align: right;
+        }
+
+        .business-info {
+            background-color: rgba(13, 17, 23, 0.8);
+            padding: 2rem 1rem;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-info h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .business-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .business-info ul li {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #868e96;
+        }
+
+        .business-info ul li a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .business-info ul li a:hover {
+            color: #0056b3;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ffffff;
+            z-index: 1001;
+        }
+
+        .hamburger-menu:hover {
+            color: #007bff;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 1002;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 1.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border-top: 1px solid #fff;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile Media Queries */
+        @media screen and (max-width: 768px) {
+            .services {
+                display: block; /* Keep the services visible on desktop */
+            }
+
+            /* Show hamburger menu only on mobile */
+            .hamburger-menu {
+                display: block;
+            }
+
+            .services {
+                display: none;
+            }
+        }
+
+        /* Chatbot Style */
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chatbot-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f7f7f7;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .chatbot-input {
+            padding: 10px;
+            border: none;
+            border-top: 2px solid #f0f0f0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .chatbot-input input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
+
 </head>
 
 <body>
@@ -202,82 +475,85 @@
 
     <!-- Quote Section -->
     <div class="quote-section">
-        <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
-        <span>- BlueNex Team</span>
+        <p>"The best way to predict the future is to create it." <span>- Peter Drucker</span></p>
     </div>
 
     <!-- Portfolio Section -->
-    <div class="portfolio-item left" id="portfolio">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
+    <div class="portfolio-item left">
+        <img src="portfolio-1.jpg" alt="Portfolio Image">
         <div class="portfolio-text">
-            <p>"Amazing design and user experience!" - Client 1</p>
+            <p>We help businesses achieve a great online presence with our bespoke web design services.</p>
         </div>
     </div>
 
     <div class="portfolio-item right">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
+        <img src="portfolio-2.jpg" alt="Portfolio Image">
         <div class="portfolio-text">
-            <p>"Highly professional and creative work!" - Client 2</p>
+            <p>Our e-commerce solutions are designed to boost sales and grow your business.</p>
         </div>
     </div>
 
-    <div class="portfolio-item left">
-        <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
-        <div class="portfolio-text">
-            <p>"A seamless experience from start to finish!" - Client 3</p>
-        </div>
-    </div>
-
-    <!-- Business Info Section -->
+    <!-- Business Info -->
     <div class="business-info">
-        <h2>Business Information</h2>
+        <h2>Contact Information</h2>
         <ul>
-            <li>Phone: (123) 456-7890</li>
-            <li>Email: contact@bluenex.com</li>
-            <li><a href="https://www.linkedin.com/company/bluenex" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:info@bluenex.com">Email: info@bluenex.com</a></li>
+            <li><a href="tel:+1234567890">Phone: +1 234 567 890</a></li>
+            <li><a href="https://www.google.com/maps?q=123+Business+Street,+Dorset" target="_blank">Address: 123 Business Street, Dorset</a></li>
         </ul>
     </div>
 
-    <!-- Chatbot Icon and Window -->
-    <div id="chatbot-icon" onclick="toggleChat()">💬</div>
-    <div id="chat-window">
-        <header>Chat with Us</header>
-        <div id="chat-messages"></div>
-        <input type="text" id="chat-input" placeholder="Type a message...">
-        <button id="send-message" onclick="sendMessage()">Send</button>
+    <!-- Chatbot Button -->
+    <button class="chatbot-button" onclick="toggleChatbot()">💬</button>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">Chat with Us</div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type a message..." onkeydown="sendMessage(event)">
+        </div>
     </div>
 
     <script>
-        // Toggle the chat window visibility
-        function toggleChat() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.style.display = chatWindow.style.display === 'block' ? 'none' : 'block';
+        // Toggle Hamburger Menu for Mobile
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
 
-        // Send message to chat
-        function sendMessage() {
-            const chatInput = document.getElementById('chat-input');
-            const message = chatInput.value.trim();
-            if (message) {
-                const messageElement = document.createElement('div');
-                messageElement.textContent = message;
-                document.getElementById('chat-messages').appendChild(messageElement);
-                chatInput.value = ''; // Clear the input field
-                document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        // Toggle Chatbot Visibility
+        function toggleChatbot() {
+            var chatbotContainer = document.getElementById("chatbotContainer");
+            chatbotContainer.style.display = chatbotContainer.style.display === "none" || chatbotContainer.style.display === "" ? "flex" : "none";
+        }
+
+        // Send message in Chatbot
+        function sendMessage(event) {
+            var input = document.getElementById("chatbotInput");
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                var message = input.value;
+                displayMessage(message, "user");
+                input.value = "";
+
+                // Simulate bot response
+                setTimeout(() => {
+                    var botMessage = "You said: " + message;
+                    displayMessage(botMessage, "bot");
+                }, 1000);
             }
+        }
+
+        // Display message in Chatbot
+        function displayMessage(message, sender) {
+            var messagesContainer = document.getElementById("chatbotMessages");
+            var messageElement = document.createElement("div");
+            messageElement.classList.add(sender);
+            messageElement.textContent = message;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
     </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
