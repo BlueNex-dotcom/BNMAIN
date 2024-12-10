@@ -7,18 +7,29 @@
     <title>BlueNex</title>
     <style>
 
-        /* Portfolio Section Items */
+       /* Portfolio Section Items */
 .portfolio-item {
     opacity: 0; /* Start with opacity 0 */
-    transform: translateY(50px); /* Start below the viewport (for a smooth slide-up effect) */
-    transition: all 0.6s ease-out; /* Smooth transition for both transform and opacity */
+    transform: translateX(100%); /* Start off the screen (from right) */
+    transition: all 0.8s ease-out; /* Smooth transition for both transform and opacity */
+}
+
+/* Portfolio Item from the left */
+.portfolio-item.left {
+    transform: translateX(-100%); /* Start off the screen (from left) */
+}
+
+/* Portfolio Item from the right */
+.portfolio-item.right {
+    transform: translateX(100%); /* Start off the screen (from right) */
 }
 
 /* When the item is in the viewport, apply the animation */
 .portfolio-item.in-view {
     opacity: 1;
-    transform: translateY(0); /* Move to its normal position (slide up effect) */
+    transform: translateX(0); /* Move to its normal position */
 }
+
         
         body {
             margin: 0;
