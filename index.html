@@ -29,7 +29,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: -1; /* Keep it behind content */
         }
 
         .streak {
@@ -195,23 +195,22 @@
             justify-content: flex-start;
             height: 70vh;
             overflow: hidden;
-            transition: transform 0.3s ease-in-out;
             opacity: 0;
             transform: translateX(-100%);
-            animation: slide-in 1s forwards;
+            transition: transform 0.6s ease, opacity 0.6s ease;
         }
 
-        /* Animation for portfolio items to slide in */
-        @keyframes slide-in {
-            0% {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
+        .portfolio-item.right {
+            transform: translateX(100%);
+        }
 
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .portfolio-item.left {
+            transform: translateX(-100%);
+        }
+
+        .portfolio-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .portfolio-item img {
@@ -233,9 +232,9 @@
             right: 10%;
         }
 
-        /* Scale-up effect on hover */
+        /* Floating Effect on Hover */
         .portfolio-item img:hover {
-            transform: scale(1.1);
+            transform: translateY(-10px);
             box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
         }
 
@@ -434,21 +433,21 @@
     </div>
 
     <!-- Portfolio Section -->
-    <div class="portfolio-item left" id="portfolio">
+    <div class="portfolio-item left" id="portfolio1">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
         <div class="portfolio-text">
             <p>"Amazing design and user experience!" - Client 1</p>
         </div>
     </div>
 
-    <div class="portfolio-item right">
+    <div class="portfolio-item right" id="portfolio2">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
         <div class="portfolio-text">
             <p>"Highly professional and creative work!" - Client 2</p>
         </div>
     </div>
 
-    <div class="portfolio-item left">
+    <div class="portfolio-item left" id="portfolio3">
         <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
         <div class="portfolio-text">
             <p>"A seamless experience from start to finish!" - Client 3</p>
@@ -471,10 +470,25 @@
             const menu = document.getElementById('dropdownMenu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
+
+        // Intersection Observer for Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observing the portfolio items
+        observer.observe(document.getElementById('portfolio1'));
+        observer.observe(document.getElementById('portfolio2'));
+        observer.observe(document.getElementById('portfolio3'));
     </script>
 </body>
 
 </html>
+
 
 
 
