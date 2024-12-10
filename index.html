@@ -10,15 +10,14 @@
         /* Portfolio Animation */
 .portfolio-item {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-in-out;
+    transform: translateY(80px); /* Start from further below */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .portfolio-item.in-view {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Move to its original position */
 }
-
         
         body {
             margin: 0;
@@ -472,7 +471,7 @@
         }
     </script>
 
-    <script>
+   <script>
     // Function to detect if an element is in the viewport
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -488,7 +487,7 @@
     function handleScroll() {
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         portfolioItems.forEach(item => {
-            if (isInViewport(item)) {
+            if (isInViewport(item) && !item.classList.contains('in-view')) {
                 item.classList.add('in-view');
             }
         });
@@ -497,8 +496,10 @@
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Trigger the scroll event on page load
-    handleScroll();
+    // Trigger the scroll event on page load to check visibility immediately
+    window.addEventListener('load', handleScroll);
+</script>
+
 </script>
 
 
