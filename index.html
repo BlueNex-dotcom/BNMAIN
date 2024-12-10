@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueNex</title>
     <style>
-
     
         body {
             margin: 0;
@@ -155,16 +154,16 @@
         }
 
         /* Best Website Designers Section */
-.best-designers-section {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #c9d1d9; /* Matches the text color */
-    background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
-    margin: 1.5rem 0; /* Adds spacing between sections */
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
+        .best-designers-section {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c9d1d9; /* Matches the text color */
+            background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
+            margin: 1.5rem 0; /* Adds spacing between sections */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
 
         /* Quote Section */
         .quote-section {
@@ -197,7 +196,49 @@
             justify-content: flex-start;
             height: 70vh;
             overflow: hidden;
-            transition: transform 0.3s ease-in-out;
+            opacity: 0;
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .portfolio-item.left {
+            animation-name: slideInLeft;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .portfolio-item.right {
+            animation-name: slideInRight;
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .portfolio-item img {
@@ -368,7 +409,6 @@
             .services {
                 display: none;
             }
-           
         }
     </style>
 </head>
@@ -401,9 +441,9 @@
     </header>
 
     <!-- New Section: Best Website Designers -->
-<div class="best-designers-section">
-    <p>The Best Website Designers in Dorset</p>
-</div>
+    <div class="best-designers-section">
+        <p>The Best Website Designers in Dorset</p>
+    </div>
 
     <!-- Services Section (Visible on Desktop) -->
     <div class="services">
@@ -460,9 +500,6 @@
         }
     </script>
 
-   
-
 </body>
 
 </html>
-
