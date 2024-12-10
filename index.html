@@ -509,6 +509,20 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
+
+<!-- Add this at the bottom of your <body> tag or where it fits into your layout -->
+<button id="chatbot-toggle" onclick="toggleChat()">💬</button>
+<div id="chatbot-window" class="chatbot-window">
+    <div class="chat-header">
+        <span>Chatbot</span>
+        <button onclick="closeChat()">❌</button>
+    </div>
+    <div id="chatbox" class="chatbox"></div>
+    <input type="text" id="user-input" placeholder="Type a message..." onkeydown="if(event.key === 'Enter'){sendMessage()}">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+    
 </body>
 
 </html>
