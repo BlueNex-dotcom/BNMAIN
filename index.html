@@ -402,6 +402,25 @@
         
     </style>
 
+<style>
+    .portfolio-item img {
+        position: absolute;
+        top: 0;
+        height: 90%;
+        width: 60%;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out; /* Ensures smooth scaling */
+    }
+
+    /* Hover Effect */
+    .portfolio-item img:hover {
+        transform: scale(1.1); /* Scale up on hover */
+    }
+</style>
+
+    
 </head>
 
 <body>
