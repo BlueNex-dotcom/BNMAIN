@@ -367,7 +367,39 @@
                 display: none;
             }
         }
-   
+
+         /* Slide-in Animation */
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-right {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Add animation to portfolio items */
+        .portfolio-item.left {
+            animation: slide-in-left 1s ease-out;
+        }
+
+        .portfolio-item.right {
+            animation: slide-in-right 1s ease-out;
+        }
+        
     </style>
 
      /* Slide-in Animation */
@@ -401,7 +433,6 @@
         .portfolio-item.right {
             animation: slide-in-right 1s ease-out;
         }
-    </style>
     
 </head>
 
