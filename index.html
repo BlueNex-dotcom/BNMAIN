@@ -1,286 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueNex</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Lato', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            position: relative;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueNex</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
 
-        h1, h2, p {
-            margin: 0;
-            padding: 0;
-        }
+    h1, h2, p {
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Streaks background */
-        .streaks {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
+    /* Streaks background */
+    .streaks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1; /* Keep it behind content */
+    }
 
-        .streak {
-            position: absolute;
-            width: 2px;
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
-            opacity: 0.6;
-            animation: streak-animation 2s linear infinite;
-        }
+    .streak {
+      position: absolute;
+      width: 2px;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+      opacity: 0.6;
+      animation: streak-animation 2s linear infinite;
+    }
 
-        @keyframes streak-animation {
-            0% {
-                transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
-                opacity: 0;
-            }
+    @keyframes streak-animation {
+      0% {
+        transform: translateY(-100px) translateX(calc(100vw * var(--x-pos)));
+        opacity: 0;
+      }
 
-            30% {
-                opacity: 0.8;
-            }
+      30% {
+        opacity: 0.8;
+      }
 
-            100% {
-                transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
-                opacity: 0;
-            }
-        }
+      100% {
+        transform: translateY(100vh) translateX(calc(100vw * var(--x-pos)));
+        opacity: 0;
+      }
+    }
 
-        .streak:nth-child(1) {
-            --x-pos: 0.1;
-        }
+    .streak:nth-child(1) {
+      --x-pos: 0.1;
+    }
 
-        .streak:nth-child(2) {
-            --x-pos: 0.3;
-            animation-delay: 0.5s;
-        }
+    .streak:nth-child(2) {
+      --x-pos: 0.3;
+      animation-delay: 0.5s;
+    }
 
-        .streak:nth-child(3) {
-            --x-pos: 0.5;
-            animation-delay: 1s;
-        }
+    .streak:nth-child(3) {
+      --x-pos: 0.5;
+      animation-delay: 1s;
+    }
 
-        .streak:nth-child(4) {
-            --x-pos: 0.7;
-            animation-delay: 1.5s;
-        }
+    .streak:nth-child(4) {
+      --x-pos: 0.7;
+      animation-delay: 1.5s;
+    }
 
-        .streak:nth-child(5) {
-            --x-pos: 0.9;
-            animation-delay: 2s;
-        }
+    .streak:nth-child(5) {
+      --x-pos: 0.9;
+      animation-delay: 2s;
+    }
 
-        /* Header Section */
-        header {
-            position: relative;
-            text-align: center;
-            padding: 4rem 1rem;
-            background: rgba(13, 17, 23, 0.9);
-            color: #c9d1d9;
-        }
+    /* Header Section */
+    header {
+      position: relative;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: rgba(13, 17, 23, 0.9);
+      color: #c9d1d9;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #868e96;
-        }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #868e96;
+    }
 
-        /* Services Section */
-        .services {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(13, 17, 23, 0.9);
-            padding: 0.5rem 2rem;
-            z-index: 1000;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
+    /* Services Section */
+    .services {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(13, 17, 23, 0.9);
+      padding: 0.5rem 2rem;
+      z-index: 1000;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
 
-        .services .service-button {
-            text-decoration: none;
-            font-size: 1rem;
-            color: #000000;
-            background-color: #ffffff;
-            padding: 0.5rem 1rem;
-            border: 2px solid #000000;
-            border-radius: 25px;
-            margin: 0.5rem;
-            display: inline-block;
-            transition: background-color 0.3s ease-in-out;
-        }
+    .services .service-button {
+      text-decoration: none;
+      font-size: 1rem;
+      color: #000000;
+      background-color: #ffffff;
+      padding: 0.5rem 1rem;
+      border: 2px solid #000000;
+      border-radius: 25px;
+      margin: 0.5rem;
+      display: inline-block;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-        .services .service-button:hover {
-            background-color: #f0f0f0;
-        }
+    .services .service-button:hover {
+      background-color: #f0f0f0;
+    }
 
-        /* Contact button positioned to the right */
-        .services .contact-button {
-            position: absolute;
-            right: 6rem;
-            top: 1rem;
-            text-decoration: none;
-            font-size: 1rem;
-            color: #ffffff;
-            background-color: #007bff;
-            padding: 0.5rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            display: inline-block;
-            transition: background-color 0.3s ease-in-out;
-        }
+    /* Contact button positioned to the right */
+    .services .contact-button {
+      position: absolute;
+      right: 6rem;
+      top: 1rem;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #ffffff;
+      background-color: #007bff;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      display: inline-block;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-        .services .contact-button:hover {
-            background-color: #0056b3;
-        }
+    .services .contact-button:hover {
+      background-color: #0056b3;
+    }
 
-        /* Best Website Designers Section */
-        .best-designers-section {
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #c9d1d9;
-            background-color: rgba(13, 17, 23, 0.8);
-            margin: 1.5rem 0;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        }
+    /* Best Website Designers Section */
+    .best-designers-section {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #c9d1d9; /* Matches the text color */
+      background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
+      margin: 1.5rem 0; /* Adds spacing between sections */
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
 
-        /* Chatbot Styling */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999; /* Ensure chatbot is above all other elements */
-            background-color: #fff;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            width: 300px;
-            overflow: hidden;
-            max-height: 400px;
-        }
+    /* Quote Section */
+    .quote-section {
+      background-color: rgba(13, 17, 23, 0.6);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #ffffff;
+      margin: 2rem 0;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .chatbot-header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
+    .quote-section p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
 
-        .chatbot-body {
-            padding: 10px;
-            max-height: 250px;
-            overflow-y: auto;
-            font-size: 0.9rem;
-        }
+    .quote-section span {
+      font-size: 1.2rem;
+      color: #007bff;
+      font-weight: bold;
+    }
 
-        .chatbot-input-container {
-            display: flex;
-            border-top: 1px solid #ddd;
-        }
+    /* Portfolio Section */
+    .portfolio-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 70vh;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .chatbot-input {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
+    .portfolio-item img {
+      position: absolute;
+      top: 0;
+      height: 90%;
+      width: 60%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .chatbot-send {
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    .portfolio-item.left img {
+      left: 10%;
+    }
+
+    .portfolio-item.right img {
+      right: 10%;
+    }
+
+    /* Floating Effect on Hover */
+    .portfolio-item img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .portfolio-text {
+      position: relative;
+      z-index: 2;
+      max-width: 30%;
+      padding: 1.5rem;
+    }
+
+    .portfolio-text p {
+      position: relative;
+      z-index: 3;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      background: rgba(248, 249, 250, 0.9);
+      color: #000000;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Thought Bubble Tail */
+    .portfolio-item.left .portfolio-text p::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      border-width: 10px 20px 10px 0;
+      border-style: solid;
+      border-color: transparent rgba(248, 249, 250, 0.9) transparent transparent;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-item.right .portfolio-text p::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      border-width: 10px 0 10px 20px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgba(248, 249, 250, 0.9);
+      transform: translateY(-50%);
+    }
+
+    .portfolio-item.left .portfolio-text {
+      margin-left: auto;
+      text-align: left;
+    }
+
+    .portfolio-item.right .portfolio-text {
+      margin-right: auto;
+      text-align: right;
+    }
+
+    .business-info {
+      background-color: rgba(13, 17, 23, 0.8);
+      padding: 2rem 1rem;
+      color: #ffffff;
+      text-align: center;
+      margin-top: 2rem;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .business-info h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .business-info ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .business-info ul li {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #868e96;
+    }
+
+    .business-info ul li a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .business-info ul li a:hover {
+      color: #0056b3;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ffffff;
+      z-index: 1001;
+    }
+
+    .hamburger-menu:hover {
+      color: #007bff;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      z-index: 1002;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      border-top: 1px solid #fff;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #007bff;
+    }
+
+    /* Mobile Media Queries */
+    @media screen and (max-width: 768px) {
+      .services {
+        display: block;
+      }
+      /* Show hamburger menu only on mobile */
+      .hamburger-menu {
+        display: block;
+      }
+      .services {
+        display: none;
+      }
+    }
+  </style>
+  <style>
+    .portfolio-item img {
+      position: absolute;
+      top: 0;
+      height: 90%;
+      width: 60%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Hover Effect */
+    .portfolio-item img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
-
 <body>
-    <div class="streaks">
-        <div class="streak"></div>
-        <div class="streak"></div>
-        <div class="streak"></div>
-        <div class="streak"></div>
-        <div class="streak"></div>
+  <div class="streaks">
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+    <div class="streak"></div>
+  </div>
+
+  <!-- Hamburger Menu for Mobile -->
+  <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="index.html" class="service-button">Home</a>
+    <a href="web-design.html" class="service-button">Web Design</a>
+    <a href="e-commerce.html" class="service-button">E-Commerce</a>
+    <a href="branding.html" class="service-button">Branding</a>
+    <a href="contact.html" class="contact-button">Contact</a>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <h1>BlueNex</h1>
+    <p>Your Gateway to Stunning Web Design</p>
+  </header>
+
+  <!-- New Section: Best Website Designers -->
+  <div class="best-designers-section">
+    <p>The Best Website Designers in Dorset</p>
+  </div>
+
+  <!-- Services Section (Visible on Desktop) -->
+  <div class="services">
+    <a href="index.html" class="service-button">Home</a>
+    <a href="web-design.html" class="service-button">Web Design</a>
+    <a href="e-commerce.html" class="service-button">E-Commerce</a>
+    <a href="branding.html" class="service-button">Branding</a>
+    <a href="contact.html" class="contact-button">Contact</a>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote-section">
+    <p>"Transform your digital presence with BlueNex. Innovative designs that elevate your business to the next level."</p>
+    <span>- BlueNex Team</span>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio-item left" id="portfolio">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-1.jpg" alt="Website 1">
+    <div class="portfolio-text">
+      <p>"Amazing design and user experience!" - Client 1</p>
     </div>
+  </div>
 
-    <header>
-        <h1>Welcome to BlueNex</h1>
-        <p>Your next generation solution provider</p>
-    </header>
-
-    <section class="services">
-        <a href="#" class="service-button">Web Design</a>
-        <a href="#" class="service-button">Development</a>
-        <a href="#" class="service-button">SEO</a>
-        <a href="#" class="contact-button">Contact Us</a>
-    </section>
-
-    <section class="best-designers-section">
-        <h2>Best Website Designers</h2>
-        <p>Our team of experts is ready to help you build the perfect website!</p>
-    </section>
-
-    <!-- Chatbot Section -->
-    <div class="chatbot-container" id="chatbot">
-        <div class="chatbot-header">Chat with Us</div>
-        <div class="chatbot-body" id="chatbotBody">
-            <div>Welcome to BlueNex! How can we assist you today?</div>
-        </div>
-        <div class="chatbot-input-container">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message here..." />
-            <button class="chatbot-send" onclick="sendMessage()">Send</button>
-        </div>
+  <div class="portfolio-item right">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-2.jpg" alt="Website 2">
+    <div class="portfolio-text">
+      <p>"Highly professional and creative work!" - Client 2</p>
     </div>
+  </div>
 
-    <script>
-        function sendMessage() {
-            const input = document.getElementById('chatbotInput');
-            const body = document.getElementById('chatbotBody');
+  <div class="portfolio-item left">
+    <img src="https://raw.githubusercontent.com/BlueNex-dotcom/BNMAIN/refs/heads/main/tst-img-3.jpg" alt="Website 3">
+    <div class="portfolio-text">
+      <p>"A seamless experience from start to finish!" - Client 3</p>
+    </div>
+  </div>
 
-            if (input.value.trim() !== '') {
-                const userMessage = document.createElement('div');
-                userMessage.textContent = input.value;
-                userMessage.style.color = '#000';
-                userMessage.style.margin = '10px 0';
-                body.appendChild(userMessage);
+  <!-- Business Info Section -->
+  <div class="business-info">
+    <h2>Business Information</h2>
+    <ul>
+      <li>Phone: (123) 456-7890</li>
+      <li>Email: contact@bluenex.com</li>
+      <li><a href="https://www.linkedin.com/company/bluenex" target="_blank">LinkedIn</a></li>
+    </ul>
+  </div>
 
-                // Simulate bot response
-                const botMessage = document.createElement('div');
-                botMessage.textContent = 'Thanks for reaching out! We will get back to you soon.';
-                botMessage.style.color = '#007bff';
-                botMessage.style.margin = '10px 0';
-                body.appendChild(botMessage);
+  <!-- Chatbot Embed -->
+  <script src="https://code.tidio.co/your-chatbot-id.js"></script>
 
-                input.value = '';
-                body.scrollTop = body.scrollHeight; // Scroll to bottom
-            }
-        }
-    </script>
+  <script>
+    // JavaScript to toggle the dropdown menu
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </body>
-
 </html>
-
-
-
