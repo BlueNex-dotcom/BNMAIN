@@ -41,6 +41,18 @@ header p {
     color: #868e96;
 }
 
+/* Best Website Designers Section */
+.best-designers-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #c9d1d9; /* Matches the text color */
+    background-color: rgba(13, 17, 23, 0.8); /* Blends with your theme */
+    margin: 1.5rem 0; /* Adds spacing between sections */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 /* Categories Section */
 .categories {
     display: flex;
