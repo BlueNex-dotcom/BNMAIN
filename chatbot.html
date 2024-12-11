@@ -3,83 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot</title>
+  <title>Engaging Chatbot</title>
   <style>
-    /* Basic CSS for the chatbot interface */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
     .chatbot-container {
       position: fixed;
       bottom: 10px;
       right: 10px;
-      width: 350px;
-      height: 500px;
+      width: 400px;
+      height: 600px;
+      background: #fff;
+      border-radius: 10px;
       border: 2px solid #ccc;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    .chatbot-header {
-      background-color: #4CAF50;
+    /* Chat header styles */
+    .chat-header {
+      background: #007bff;
       color: white;
       padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
       text-align: center;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-
-    .chatbot-messages {
-      flex-grow: 1;
-      padding: 10px;
-      overflow-y: auto;
-      background-color: #f9f9f9;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .chatbot-input {
-      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid #ccc;
+      align-items: center;
     }
 
-    .chatbot-input input {
-      width: 80%;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    .chatbot-input button {
-      width: 15%;
-      padding: 8px;
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      border-radius: 4px;
+    .chat-header span {
       cursor: pointer;
     }
 
-    .chatbot-input button:hover {
-      background-color: #45a049;
+    /* Chat messages container */
+    .chat-messages {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      border-bottom: 1px solid #ccc;
     }
 
-    .message {
-      margin: 10px 0;
+    .chat-messages p {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
     }
 
-    .message.user {
+    .user-msg {
+      background: #007bff;
+      color: white;
       text-align: right;
-      color: #007bff;
+      max-width: 80%;
+      margin-left: auto;
     }
 
-    .message.bot {
-      text-align: left;
+    .bot-msg {
+      background: #f1f1f1;
       color: #333;
+      max-width: 80%;
+      margin-right: auto;
+    }
+
+    /* Input area styles */
+    .chat-input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .chat-input-area input {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    .chat-input-area button {
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .chat-input-area button:hover {
+      background: #0056b3;
+    }
+
+    /* Quick reply button styles */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-reply-btn {
+      background: #007bff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .quick-reply-btn:hover {
+      background: #0056b3;
+    }
+
+    /* Fade-in effect for chatbot */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -87,61 +147,99 @@
 
   <!-- Chatbot Container -->
   <div class="chatbot-container">
-    <div class="chatbot-header">
-      Chatbot
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <span>Chat with us!</span>
+      <span id="close-chat" style="font-size: 20px;">&#10006;</span>
     </div>
-    <div class="chatbot-messages" id="chatbotMessages">
-      <!-- Messages will appear here -->
+
+    <!-- Chat Messages Area -->
+    <div class="chat-messages" id="chat-messages">
+      <!-- Messages will be added dynamically here -->
     </div>
-    <div class="chatbot-input">
-      <input type="text" id="userMessage" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <input type="text" id="user-input" placeholder="Type a message..." />
+      <button id="send-btn">Send</button>
+    </div>
+
+    <!-- Quick Reply Buttons -->
+    <div class="quick-replies" id="quick-replies">
+      <button class="quick-reply-btn">Hi</button>
+      <button class="quick-reply-btn">Help</button>
+      <button class="quick-reply-btn">Bye</button>
     </div>
   </div>
 
   <script>
-    // Simulate sending and receiving messages from the chatbot
-    const chatbotMessages = document.getElementById('chatbotMessages');
+    // Get DOM elements
+    const sendButton = document.getElementById("send-btn");
+    const userInput = document.getElementById("user-input");
+    const chatMessages = document.getElementById("chat-messages");
+    const closeButton = document.getElementById("close-chat");
+    const quickReplies = document.getElementById("quick-replies");
 
-    // Function to append messages to the chat window
-    function appendMessage(content, sender) {
-      const message = document.createElement('div');
-      message.classList.add('message');
-      message.classList.add(sender);
-      message.textContent = content;
-      chatbotMessages.appendChild(message);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the bottom
-    }
+    // Open chatbot automatically when the page loads
+    let chatbotVisible = true;
 
-    // Function to handle sending user messages
-    function sendMessage() {
-      const userMessage = document.getElementById('userMessage').value;
-      if (userMessage.trim() !== '') {
-        appendMessage(userMessage, 'user');
-        document.getElementById('userMessage').value = ''; // Clear input field
+    // Function to simulate bot messages
+    const addBotMessage = (message) => {
+      const botMessage = document.createElement("p");
+      botMessage.classList.add("bot-msg");
+      botMessage.textContent = message;
+      chatMessages.appendChild(botMessage);
+      chatMessages.scrollTop = chatMessages.scrollHeight; // Auto scroll to bottom
+    };
 
-        // Simulate a bot response (you can replace this with an actual API call to a backend)
-        setTimeout(() => {
-          const botResponse = getBotResponse(userMessage);
-          appendMessage(botResponse, 'bot');
-        }, 1000); // Delay for bot response
+    // Function to send user messages
+    const sendUserMessage = (message) => {
+      const userMessage = document.createElement("p");
+      userMessage.classList.add("user-msg");
+      userMessage.textContent = message;
+      chatMessages.appendChild(userMessage);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    // Handle send button click
+    sendButton.addEventListener("click", () => {
+      const message = userInput.value.trim();
+      if (message) {
+        sendUserMessage(message);
+        addBotMessage("You said: " + message); // Simulate bot response
+        userInput.value = ""; // Clear the input field
       }
-    }
+    });
 
-    // Simulate bot responses (can be replaced with an API call to your backend)
-    function getBotResponse(userMessage) {
-      // Replace this with actual logic or API calls to your chatbot service
-      const responses = {
-        'hello': 'Hi there! How can I help you today?',
-        'how are you': 'I\'m just a bot, but I\'m doing great, thanks for asking!',
-        'bye': 'Goodbye! Have a great day!',
-        'default': 'Sorry, I didn\'t quite catch that. Can you ask something else?'
-      };
+    // Handle user pressing Enter
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        sendButton.click();
+      }
+    });
 
-      // Return a response based on the user input
-      return responses[userMessage.toLowerCase()] || responses['default'];
-    }
+    // Handle quick reply button clicks
+    quickReplies.addEventListener("click", (e) => {
+      if (e.target && e.target.classList.contains("quick-reply-btn")) {
+        const quickReplyMessage = e.target.textContent;
+        sendUserMessage(quickReplyMessage);
+        addBotMessage("You selected: " + quickReplyMessage); // Simulate bot response
+      }
+    });
+
+    // Handle closing chatbot
+    closeButton.addEventListener("click", () => {
+      chatbotVisible = !chatbotVisible;
+      if (chatbotVisible) {
+        document.querySelector('.chatbot-container').style.display = 'flex';
+      } else {
+        document.querySelector('.chatbot-container').style.display = 'none';
+      }
+    });
+
+    // Initial bot greeting message
+    addBotMessage("Hello! How can I assist you today?");
   </script>
-
 </body>
 </html>
+
