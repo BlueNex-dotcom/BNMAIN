@@ -653,58 +653,63 @@ flex-direction: column;
 
 <script>
   
-  // JavaScript for Chatbot Toggle
-const chatbotIcon = document.getElementById('chatbot-icon');
-const chatbotWindow = document.getElementById('chatbot-window');
-let isChatbotOpen = false; // Track the chatbot state
+<script>
+  // Toggle the chatbot's visibility
+  function toggleChatbot() {
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const displayStatus = chatbotWindow.style.display;
 
-let chatbotOpen = false; // Track the chatbot's open/closed state
+    // Toggle between 'block' and 'none'
+    chatbotWindow.style.display = displayStatus === 'block' ? 'none' : 'block';
+  }
 
-function toggleChatbot() {
-    const chatbotWindow = document.getElementById("chatbotWindow");
+  // Handle user messages
+  function handleUserMessage() {
+    const input = document.getElementById('chatbotInput');
+    const message = input.value.trim();
 
-    if (chatbotOpen) {
-        // Close the chatbot
-        chatbotWindow.style.display = "none";
-        chatbotOpen = false;
-    } else {
-        // Open the chatbot
-        chatbotWindow.style.display = "flex";
-        chatbotOpen = true;
-      
-// Start with the chatbot hidden
-chatbotWindow.style.display = 'none';
+    if (message) {
+      const chatbotBody = document.getElementById('chatbotBody');
 
+      // Add user's message to the chat
+      const userMessage = document.createElement('div');
+      userMessage.className = 'chatbot-message user';
+      userMessage.innerHTML = `<p>${message}</p>`;
+      chatbotBody.appendChild(userMessage);
 
-// Handle User Messages
-function handleUserMessage() {
-  const input = document.getElementById('chatbotInput');
-  const message = input.value.trim();
-  if (!message) return;
+      // Clear the input field
+      input.value = '';
 
-  // Add user message to chat
-  const chatbotBody = document.getElementById('chatbotBody');
-  const userMessage = document.createElement('div');
-  userMessage.className = 'chatbot-message user';
-  userMessage.innerHTML = `<p>${message}</p>`;
-  chatbotBody.appendChild(userMessage);
+      // Scroll to the bottom of the chat
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;
 
-  // Clear input
-  input.value = '';
+      // Example: Add bot response
+      setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.className = 'chatbot-message bot';
+        botMessage.innerHTML = `<p>Thank you for reaching out. How can I assist you further?</p>`;
+        chatbotBody.appendChild(botMessage);
 
-  // Simulate bot reply
-  setTimeout(() => {
-    const botMessage = document.createElement('div');
-    botMessage.className = 'chatbot-message bot';
-    botMessage.innerHTML = `<p>I'm here to assist you with any questions!</p>`;
-    chatbotBody.appendChild(botMessage);
+        // Scroll to the bottom after bot's response
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      }, 1000); // Simulate a delay for the bot's response
+    }
+  }
 
-    // Scroll to bottom
-    chatbotBody.scrollTop = chatbotBody.scrollHeight;
-  }, 1000);
-}
-  
+  // Close chatbot when clicking outside (optional)
+  window.addEventListener('click', (event) => {
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+
+    if (
+      !chatbotWindow.contains(event.target) &&
+      !chatbotToggle.contains(event.target)
+    ) {
+      chatbotWindow.style.display = 'none';
+    }
+  });
 </script>
+
 </body>
 
 </html>
