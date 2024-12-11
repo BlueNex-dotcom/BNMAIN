@@ -658,16 +658,20 @@ const chatbotIcon = document.getElementById('chatbot-icon');
 const chatbotWindow = document.getElementById('chatbot-window');
 let isChatbotOpen = false; // Track the chatbot state
 
-// Function to toggle the chatbot visibility
-chatbotIcon.addEventListener('click', () => {
-  isChatbotOpen = !isChatbotOpen;
-  if (isChatbotOpen) {
-    chatbotWindow.style.display = 'flex'; // Show the chatbot
-  } else {
-    chatbotWindow.style.display = 'none'; // Hide the chatbot
-  }
-});
+let chatbotOpen = false; // Track the chatbot's open/closed state
 
+function toggleChatbot() {
+    const chatbotWindow = document.getElementById("chatbotWindow");
+
+    if (chatbotOpen) {
+        // Close the chatbot
+        chatbotWindow.style.display = "none";
+        chatbotOpen = false;
+    } else {
+        // Open the chatbot
+        chatbotWindow.style.display = "flex";
+        chatbotOpen = true;
+      
 // Start with the chatbot hidden
 chatbotWindow.style.display = 'none';
 
