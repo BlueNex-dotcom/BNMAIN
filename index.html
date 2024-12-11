@@ -648,68 +648,65 @@ flex-direction: column;
   </div>
 </div>
 
-
-// Toggle Chatbot Visibility
-
 <script>
   
-<script>
-  // Toggle the chatbot's visibility
-  function toggleChatbot() {
+// Toggle the chatbot's visibility
+function toggleChatbot() {
     const chatbotWindow = document.getElementById('chatbotWindow');
     const displayStatus = chatbotWindow.style.display;
 
     // Toggle between 'block' and 'none'
     chatbotWindow.style.display = displayStatus === 'block' ? 'none' : 'block';
-  }
+}
 
-  // Handle user messages
-  function handleUserMessage() {
+// Handle user messages
+function handleUserMessage() {
     const input = document.getElementById('chatbotInput');
     const message = input.value.trim();
 
     if (message) {
-      const chatbotBody = document.getElementById('chatbotBody');
+        const chatbotBody = document.getElementById('chatbotBody');
 
-      // Add user's message to the chat
-      const userMessage = document.createElement('div');
-      userMessage.className = 'chatbot-message user';
-      userMessage.innerHTML = `<p>${message}</p>`;
-      chatbotBody.appendChild(userMessage);
+        // Add user's message to the chat
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chatbot-message user';
+        userMessage.innerHTML = `<p>${message}</p>`;
+        chatbotBody.appendChild(userMessage);
 
-      // Clear the input field
-      input.value = '';
+        // Clear the input field
+        input.value = '';
 
-      // Scroll to the bottom of the chat
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-
-      // Example: Add bot response
-      setTimeout(() => {
-        const botMessage = document.createElement('div');
-        botMessage.className = 'chatbot-message bot';
-        botMessage.innerHTML = `<p>Thank you for reaching out. How can I assist you further?</p>`;
-        chatbotBody.appendChild(botMessage);
-
-        // Scroll to the bottom after bot's response
+        // Scroll to the bottom of the chat
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      }, 1000); // Simulate a delay for the bot's response
-    }
-  }
 
-  // Close chatbot when clicking outside (optional)
-  window.addEventListener('click', (event) => {
+        // Example: Add bot response
+        setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chatbot-message bot';
+            botMessage.innerHTML = `<p>Thank you for reaching out. How can I assist you further?</p>`;
+            chatbotBody.appendChild(botMessage);
+
+            // Scroll to the bottom after bot's response
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }, 1000); // Simulate a delay for the bot's response
+    }
+}
+
+// Close chatbot when clicking outside (optional)
+window.addEventListener('click', (event) => {
     const chatbotWindow = document.getElementById('chatbotWindow');
     const chatbotToggle = document.getElementById('chatbotToggle');
 
     if (
-      !chatbotWindow.contains(event.target) &&
-      !chatbotToggle.contains(event.target)
+        !chatbotWindow.contains(event.target) &&
+        !chatbotToggle.contains(event.target)
     ) {
-      chatbotWindow.style.display = 'none';
+        chatbotWindow.style.display = 'none';
     }
-  });
-</script>
+});
 
+</script>
+  
 </body>
 
 </html>
