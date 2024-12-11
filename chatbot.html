@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    /* Basic CSS for the chatbot interface */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .chatbot-container {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 350px;
+      height: 500px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chatbot-header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .chatbot-messages {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .chatbot-input {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ccc;
+    }
+
+    .chatbot-input input {
+      width: 80%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .chatbot-input button {
+      width: 15%;
+      padding: 8px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .chatbot-input button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      margin: 10px 0;
+    }
+
+    .message.user {
+      text-align: right;
+      color: #007bff;
+    }
+
+    .message.bot {
+      text-align: left;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container">
+    <div class="chatbot-header">
+      Chatbot
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userMessage" placeholder="Type a message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Simulate sending and receiving messages from the chatbot
+    const chatbotMessages = document.getElementById('chatbotMessages');
+
+    // Function to append messages to the chat window
+    function appendMessage(content, sender) {
+      const message = document.createElement('div');
+      message.classList.add('message');
+      message.classList.add(sender);
+      message.textContent = content;
+      chatbotMessages.appendChild(message);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to the bottom
+    }
+
+    // Function to handle sending user messages
+    function sendMessage() {
+      const userMessage = document.getElementById('userMessage').value;
+      if (userMessage.trim() !== '') {
+        appendMessage(userMessage, 'user');
+        document.getElementById('userMessage').value = ''; // Clear input field
+
+        // Simulate a bot response (you can replace this with an actual API call to a backend)
+        setTimeout(() => {
+          const botResponse = getBotResponse(userMessage);
+          appendMessage(botResponse, 'bot');
+        }, 1000); // Delay for bot response
+      }
+    }
+
+    // Simulate bot responses (can be replaced with an API call to your backend)
+    function getBotResponse(userMessage) {
+      // Replace this with actual logic or API calls to your chatbot service
+      const responses = {
+        'hello': 'Hi there! How can I help you today?',
+        'how are you': 'I\'m just a bot, but I\'m doing great, thanks for asking!',
+        'bye': 'Goodbye! Have a great day!',
+        'default': 'Sorry, I didn\'t quite catch that. Can you ask something else?'
+      };
+
+      // Return a response based on the user input
+      return responses[userMessage.toLowerCase()] || responses['default'];
+    }
+  </script>
+
+</body>
+</html>
