@@ -648,11 +648,24 @@
 
 <script>
   
-  function toggleChatbot() {
-  const chatbotWindow = document.getElementById('chatbotWindow');
-  const isVisible = chatbotWindow.style.display === 'block';
-  chatbotWindow.style.display = isVisible ? 'none' : 'block';
-}
+  // JavaScript for Chatbot Toggle
+const chatbotIcon = document.getElementById('chatbot-icon');
+const chatbotWindow = document.getElementById('chatbot-window');
+let isChatbotOpen = false; // Track the chatbot state
+
+// Function to toggle the chatbot visibility
+chatbotIcon.addEventListener('click', () => {
+  isChatbotOpen = !isChatbotOpen;
+  if (isChatbotOpen) {
+    chatbotWindow.style.display = 'flex'; // Show the chatbot
+  } else {
+    chatbotWindow.style.display = 'none'; // Hide the chatbot
+  }
+});
+
+// Start with the chatbot hidden
+chatbotWindow.style.display = 'none';
+
 
 // Handle User Messages
 function handleUserMessage() {
